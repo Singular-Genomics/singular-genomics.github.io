@@ -1,16 +1,15 @@
+# this file is used to build the documentation site
+
 [project]
 name = "singular-genomics-github-io"
-version = "0.1.0"
+version = "0.0.0"
 description = "Core Docs for Singular Genomics"
-readme = "README.md"
-requires-python = ">=3.10.17"
-dependencies = []
 
 [dependency-groups]
-dev = [
+docs = [
     "mkdocs ~= 1.6",
     "mkdocs-material ~= 9.6",
-    "pre-commit ~= 4.2",
-    "bump-my-version ~= 1.2",
-    # "ruff == 0.12.2",         # pinned to match pre-commit version
 ]
+
+[tool.uv]
+default-groups = ["docs"]
