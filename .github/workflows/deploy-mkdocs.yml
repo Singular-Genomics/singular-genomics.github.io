@@ -1,33 +1,32 @@
 # .github/workflows/deploy-mkdocs.yml
-name: Deploy mkdocs on new tag
+name: Deploy mkdocs on release
 
-# Trigger on sem-version tag
 on:
-  push:
-    tags:
-      - 'v*.*.*'
-  workflow_dispatch:
+  release:
+    types: [published]        # or [published, prereleased] if you want prereleases too
+  workflow_dispatch:          # keep manual runs if you like
 
-# gh-pages needs a push, so grant write; read is implied
 permissions:
   contents: write
 
-concurrency: docs        # auto-cancel superseded runs
+concurrency: docs
 
 jobs:
   deploy:
-    if: github.repository == 'singular-genomics/g4x-helpers' # Avoid running in forks that copy this workflow
+    if: github.repository == 'singular-genomics/singular-genomics.github.io'
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
         with:
+          # Check out the tag associated with the release
+          ref: ${{ github.event.release.tag_name }}
           fetch-depth: 0
 
-      - name: "Set up Python"
+      - name: Set up Python
         uses: actions/setup-python@v5
-        with:
-          python-version-file: ".python-version"
+        # with:
+        #   python-version-file: ".python-version"
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
@@ -36,10 +35,11 @@ jobs:
           enable-cache: false
 
       - name: Sync dependencies from uv.lock
-        run: uv sync --frozen --only-dev
+        run: uv sync --frozen --group docs
 
       - name: Deploy to GitHub Pages
         env:
-          TAG: ${{ github.ref_name }}      # e.g. v1.2.3
+          # On release events, ref_name isn't set—use the release payload
+          TAG: ${{ github.event.release.tag_name }}
         run: |
           uv run mkdocs gh-deploy --force --clean --message "docs: $TAG"
