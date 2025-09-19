@@ -5,22 +5,24 @@
 <br>
 
 
-#### Welcome to Singular-Genomics Docs. 
+<!-- #### Welcome to Singular-Genomics Docs.  -->
 
-## >> CONTENT PLACEHOLDER <<
 
-this is the landing page to reach specific docs:
+## Docs Are on the Way
+This documentation page isn’t live yet, but we’re actively working on it.  
+We are preparing resources for:
 
-### - G4X-viewer
-[link to G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/) 
+### [:material-code-tags: G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/)
 
-### - G4X-helpers
-[link to G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/)
+### [:material-telescope: G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/) 
 
-### - G4X-data
-[link to G4X-data](g4x_output.md)
+### [:material-map-legend: G4X-data](g4x_output.md)
 
-### - G4X-tutorials
-[link to G4X-tutorials](data_import.md)
+### [:material-television-guide: G4X-tutorials](data_import.md)
+
+<br>
+
+In the meantime, please reach out to our team if you need assistance.  
+:material-arrow-right-thin: [care@singulargenomics.com](mailto:care@singulargenomics.com).  
 
 <br>
