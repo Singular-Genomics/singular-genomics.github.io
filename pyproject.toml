@@ -4,6 +4,7 @@
 name = "singular-genomics-github-io"
 version = "0.0.0"
 description = "Core Docs for Singular Genomics"
+requires-python = ">=3.10"
 
 [dependency-groups]
 docs = [
@@ -12,5 +13,5 @@ docs = [
 ]
 
 [tool.uv]
-required-version = ">=0.8.8"     # also update in Dockerfile
+required-version = ">=0.8.8"
 default-groups = ["docs"]
