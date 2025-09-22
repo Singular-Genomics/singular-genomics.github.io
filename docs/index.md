@@ -13,10 +13,6 @@ These pages provide documentation, example workflows, and helper tools for analy
 
 <br>
 
-## Docs Are on the Way
-This documentation page isn’t live yet, but we’re actively working on it.  
-We are preparing resources for:
-
 ### [:material-code-tags: G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/)
 ---
 #### Helper models and post-processing tools for G4X data.  
@@ -35,7 +31,7 @@ With [G4X-helpers](https://github.com/Singular-Genomics/G4X-helpers) we provide 
 
 <br>
 
-### [:material-telescope: G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/) 
+### [:material-magnify: G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/) 
 ---
 
 The G4X Viewer is a Python-based, multi-purpose, interactive viewer specifically designed to help you explore your G4X data. The G4X Viewer is accessible through our [website](https://g4x-viewer.singulargenomics.com) or can be downloaded from [GitHub](https://github.com/Singular-Genomics/G4X-viewer) as a standalone application and hosted locally.
@@ -69,11 +65,6 @@ G4X Tutorials are a collection of example workflows that demonstrate how to anal
 
 + learn how to [plot spatial](./g4x_tutorials/plot_spatial.md) tissue information from the G4X data
 + generate novel nuclear or cytoplasmic [segmentations](./g4x_tutorials/segment_data.md) with popular models
-
-<br>
-
-In the meantime, please reach out to our team if you need assistance.  
-:material-arrow-right-thin: [care@singulargenomics.com](mailto:care@singulargenomics.com).  
 
 <br>
 

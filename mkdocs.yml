@@ -8,7 +8,7 @@ site_description: Singular Genomics G4X documentation
 repo_name: singular-genomics.github.io
 repo_url: https://github.com/Singular-Genomics/singular-genomics.github.io
 
-exclude_docs: |
+exclude_docs: 
   _partials/section_break.md
   _partials/**
 
