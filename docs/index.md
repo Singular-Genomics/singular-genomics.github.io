@@ -42,7 +42,7 @@ The G4X Viewer is a Python-based, multi-purpose, interactive viewer specifically
 
 
 
-### [:material-map-legend: G4X-data](./g4x_data/g4x_output.md)
+### [:material-map-legend: G4X-data](./g4x_data/index.md)
 ---
 #### Output reference and analysis import guides.  
 
@@ -56,7 +56,7 @@ The files found in the output directory are compatible with popular Python libra
 
 <br>
 
-### [:material-television-guide: G4X-tutorials](./g4x_data/data_import.md)
+### [:material-television-guide: G4X-tutorials](./g4x_tutorials/index.md)
 ---
 
 G4X Tutorials are a collection of example workflows that demonstrate how to analyze G4X data using popular Python and R libraries. These tutorials cover a wide range of topics, from basic data import and visualization to advanced analysis techniques.
