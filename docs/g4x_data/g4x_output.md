@@ -290,7 +290,7 @@ Directory structure depends on run type.
     | `mean_counts` | *float* | var | ngenes x 1 | Mean counts of each transcript across all cells |
     | `modality` | *str* | var | ngenes x 1 | G4X modality (transcript or protein) |
     | `n_cells_by_counts` | *int* | var | ngenes x 1 | Number of cells with counts of each transcript |
-    | `pct_dropout_by_counts` | *float* | var | ngenes x 1 |  |
+    | `pct_dropout_by_counts` | *float* | var | ngenes x 1 | Percentage of zero-count cells for each gene |
     | `probe_type` | *str* | var | ngenes x 1 | Type of probe: Negative control probe/sequence (NCP/NCS) or transcript targeting (targeting) |
     | `total_counts` | *int* | var | ngenes x 1 | Total transcript counts per gene |
  
