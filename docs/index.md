@@ -37,7 +37,7 @@ The G4X Viewer is a Python-based, multi-purpose, interactive viewer specifically
 
 + find [resources](https://docs.singulargenomics.com/G4X-viewer/resources) to learn how to navigate your data with the G4X Viewer
 
-
+<br>
 
 ### [:material-map-legend: G4X-data](./g4x_data/index.md)
 ---
