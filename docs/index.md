@@ -10,26 +10,23 @@ These pages provide documentation, example workflows, and helper tools for analy
 
 <br>
 
-### [:material-code-tags: G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/)
+## [:material-code-tags: G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/)
 ---
-#### Helper models and post-processing tools for G4X data.  
+### Post-processing tools and helper models for G4X-data  
 
-```bash
-$ git clone https://github.com/singular-genomics/g4x-helpers
-```
-
-With [G4X-helpers](https://github.com/Singular-Genomics/G4X-helpers) we provide an open-source toolkit for common post-processing tasks — such as applying custom segmentations or adding your own labels to the G4X-viewer. You can access its core features from the command-line interface (CLI) and additionally import it as a standalone Python package to interact with your data.
+With [G4X-helpers](https://github.com/Singular-Genomics/G4X-helpers) we provide an open-source toolkit for common post-processing tasks — such as applying custom segmentations or adding your own labels to the [G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/). You can access its core features from the command-line interface (CLI) and additionally import it as a standalone Python package to interact with your data.
 
 #### In this section, you can:
 
 + learn how to [install](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/installation/) G4X-helpers on your system
 + get started with [using](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/usage/) the command line interface (CLI)
-+ find a description of [CLI features](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/features/) 
++ find a description of its [CLI features](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/features/) 
 
 <br>
 
-### [:material-magnify: G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/) 
+## [:material-magnify: G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/) 
 ---
+### Explore and visualize your G4X-data  
 
 The G4X Viewer is a Python-based, multi-purpose, interactive viewer specifically designed to help you explore your G4X data. The G4X Viewer is accessible through our [website](https://g4x-viewer.singulargenomics.com) or can be downloaded from [GitHub](https://github.com/Singular-Genomics/G4X-viewer) as a standalone application and hosted locally.
 
@@ -39,8 +36,9 @@ The G4X Viewer is a Python-based, multi-purpose, interactive viewer specifically
 
 <br>
 
-### [:material-map-legend: G4X-data](./g4x_data/index.md)
+## [:material-map-legend: G4X-data](./g4x_data/index.md)
 ---
+### Reference documentation for G4X-output files  
 
 The G4X produces multi-modal output containing tables, images, arrays and annotated matrices for single-cell analysis.
 The files found in the output directory are compatible with popular Python libraries from the [`scverse`](https://github.com/scverse) ecosystem, like `scanpy`, `rapids-singlecell`, `squidpy`, and `spatial-data`, and, if you prefer working in R, can be easily imported into [`Seurat`](https://satijalab.org/seurat/).
@@ -52,8 +50,9 @@ The files found in the output directory are compatible with popular Python libra
 
 <br>
 
-### [:material-television-guide: G4X-tutorials](./g4x_tutorials/index.md)
+## [:material-television-guide: G4X-tutorials](./g4x_tutorials/index.md)
 ---
+### Get started analyzing your data  
 
 G4X Tutorials are a collection of example workflows that demonstrate how to analyze G4X data using popular Python and R libraries. These tutorials cover a wide range of topics, from basic data import and visualization to advanced analysis techniques.
 
@@ -67,13 +66,7 @@ G4X Tutorials are a collection of example workflows that demonstrate how to anal
 ## support
 ---
 
-Got feedback or ideas for additional tutorials?  
+Got feedback or ideas for additional tutorials or documentaiton?  
 :material-arrow-right-thin: drop us a note at [care@singulargenomics.com](mailto:care@singulargenomics.com).  
 
-Found a bug or want to report another problem regarding G4X-helpers?  
-:material-arrow-right-thin: please file a new issue on the G4X-helpers [issue tracker](https://github.com/Singular-Genomics/G4X-helpers/issues)  
-
-Want to get involved and add new features?  
-:material-arrow-right-thin: check out how to [contribute](./contributing/index.md) 
-
---8<-- "_partials/end_cap.md"
+--8<-- "_core/_partials/end_cap.md"

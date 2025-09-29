@@ -2,7 +2,7 @@
 
 # G4X output structure
 
-### Sample directory tree
+## Sample directory tree
 ---
 Directory structure depends on run type.
 
@@ -134,7 +134,7 @@ Directory structure depends on run type.
 
 <br>
 
-### /diagnostics/
+### diagnostics/
 
 > `transcript_table.parquet:` Parquet file containing all decoded and non-decoded transcripts and associated metadata (e.g. spatial coordinate, gene identity, cell identity (if assigned to a cell), quality score, sequence). Parquet files can be loaded in Python using the polars, fastparquet, pandas, and pyarrow packages.
 
@@ -154,7 +154,7 @@ Directory structure depends on run type.
 
 <br> 
 
-### /g4x_viewer/
+### g4x_viewer/
 
 !!! tip
     The G4X Viewer is a web-based tool for visualizing and exploring G4X data. All files in this directory are designed to be loaded into and explored with the G4X Viewer. For more information on how to use the G4X Viewer, see [G4X Viewer](https://docs.singulargenomics.com/G4X-viewer/).
@@ -173,7 +173,7 @@ Directory structure depends on run type.
 
 <br>
 
-### /metrics/
+### metrics/
 
 > `core_metrics.csv:` CSV file containing a set of core metrics for the tissue block including total transcripts, total area, number of cells and more.
 
@@ -183,7 +183,7 @@ Directory structure depends on run type.
 
 <br>
 
-### /h_and_e/
+### h_and_e/
 
 !!! tip
     The .jp2 images in this folder and the `/protein/` folder are suitable to use for both nuclear and cytoplasmic segmentation. For more information on how you might do this, see [segment data](../g4x_tutorials/segment_data.md).
@@ -202,7 +202,7 @@ Directory structure depends on run type.
 
 <br>
 
-### /protein/ *(Only in Multiomics runs)*
+### protein/ *(protein runs only)*
 
 > `<protein_name>.jp2:` Full-sized JPEG image used for analysis purposes. Shows the `<protein_name>` stain for selected tissue block.
 
@@ -210,19 +210,19 @@ Directory structure depends on run type.
 
 <br>
 
-### /rna/
+### rna/
 
 > `transcript_table.csv.gz:` CSV file containing a transcript table showing all demuxed transcripts on the whole tissue block. Contains coordinate information, z-layer, gene identity, and cell_id fields. All transcripts here are high confidence transcripts post-filtering and processing.
 
 <br>
 
-### /segmentation/
+### segmentation/
 
 > `segmentation_mask.npz:` Compressed numpy array file containing the segmentation mask. This can be easily read with the `numpy.load()` function.
 
 <br>
 
-### /single_cell_data/
+### single_cell_data/
 
 > `cell_by_protein.csv.gz:` Gzipped CSV file in a cell x protein intensity format. Each entry in the table is the average protein intensity for a given protein in a given cell. *Multiomics runs only.*
 
@@ -296,4 +296,4 @@ Directory structure depends on run type.
  
  <br>
 
- --8<-- "_partials/end_cap.md"
+ --8<-- "_core/_partials/end_cap.md"

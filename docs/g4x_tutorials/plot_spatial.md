@@ -114,4 +114,4 @@ ggplot2::ggsave(
 ```
 <br>
 
- --8<-- "_partials/end_cap.md"
+ --8<-- "_core/_partials/end_cap.md"

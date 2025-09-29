@@ -10,4 +10,4 @@ G4X Tutorials are a collection of example workflows that demonstrate how to anal
 + More coming soon!
 
 
---8<-- "_partials/end_cap.md"
+--8<-- "_core/_partials/end_cap.md"
