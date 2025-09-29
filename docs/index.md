@@ -1,3 +1,6 @@
+---
+toc_depth: 2
+---
 
 <br>
 # Singular Genomics Docs
