@@ -1,13 +1,13 @@
 # Changelog
 
-## latest — [2025-09-29]
+## v0.2.0 — [2025-09-29]
 
+- carrying over changes from prev. docs page
+- formatting
+- logo consistentcy
+- edits suggested by FAS team
 - added changelog and updated _core
-- final edits suggested by FAS team
-- testing commit ownership
-- Making logos consistent
-- Minor changes to formatting
-- Carrying over changes from old docs page
+- set-up uv-ship config
 
 ## v0.1.0 — [2025-09-19]
 
