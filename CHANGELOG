@@ -1,6 +1,12 @@
 # Changelog
 
-## v0.2.0 — [2025-09-29]
+## `v0.2.1` — [2025-09-29]
+
+- page-specific toc_depth on main page
+- updated _core
+- typo in CHANGELOG
+
+## `v0.2.0` — [2025-09-29]
 
 - carrying over changes from prev. docs page
 - formatting
@@ -9,7 +15,7 @@
 - added changelog and updated _core
 - set-up uv-ship config
 
-## v0.1.0 — [2025-09-19]
+## `v0.1.0` — [2025-09-19]
 
 ### mkdocs integration
 - initialized shared documentation structure across sites/repos
