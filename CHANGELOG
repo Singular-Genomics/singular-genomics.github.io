@@ -11,4 +11,10 @@
 
 ## v0.1.0 — [2025-09-19]
 
-- initialized core documentaion structure
+### mkdocs integration
+- initialized shared documentation structure across sites/repos
+- added core docs submodule and set up inheritance
+- added .gitignore
+- added CNAME to docs so it gets copied during deployment
+- added docs deploy workflow
+- added maintenance message to docs page
