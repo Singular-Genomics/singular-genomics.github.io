@@ -8,5 +8,21 @@ site_description: Singular Genomics G4X documentation
 repo_name: singular-genomics.github.io
 repo_url: https://github.com/Singular-Genomics/singular-genomics.github.io
 
+exclude_docs: |
+  _core/_partials/**
+  _core/README.md
+
 nav:
-  - Home: index.md
+  - Docs Home: index.md
+
+  - G4X-data:
+      - g4x_data/index.md
+      - G4X output: g4x_data/g4x_output.md
+      - data import: g4x_data/data_import.md
+
+  - G4X-tutorials:
+      - Introduction: g4x_tutorials/index.md
+      - plot spatial: g4x_tutorials/plot_spatial.md
+      - segment data: g4x_tutorials/segment_data.md
+
+  - changelog: changelog.md

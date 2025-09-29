@@ -1,0 +1,20 @@
+# Changelog
+
+## latest — [2025-09-29]
+
+- added changelog and updated _core
+- final edits suggested by FAS team
+- testing commit ownership
+- Making logos consistent
+- Minor changes to formatting
+- Carrying over changes from old docs page
+
+## v0.1.0 — [2025-09-19]
+
+### mkdocs integration
+- initialized shared documentation structure across sites/repos
+- added core docs submodule and set up inheritance
+- added .gitignore
+- added CNAME to docs so it gets copied during deployment
+- added docs deploy workflow
+- added maintenance message to docs page
