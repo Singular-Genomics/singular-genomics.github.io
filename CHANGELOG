@@ -1,5 +1,11 @@
 # Changelog
 
+## `v0.2.2` — [2025-10-01]
+
+- docs: fixed broken links
+- docs: spell-check and formatting
+- docs: specific toc_depth in changelog
+
 ## `v0.2.1` — [2025-09-29]
 
 - page-specific toc_depth on main page
