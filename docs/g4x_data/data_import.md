@@ -1,8 +1,8 @@
 <br>
 
-# G4X data import
+# G4X-data import
 
-The multi-modal output of the G4X spatial sequencer comprises images, tables and annotated data matrices, which allow deep exploration of your sample. The `single_cell_data` folder in the G4X output contains the final processed form of the data, after transcript and image signals have been aggregated for each each segmented cell. There are several excellent open-source tools available that enable the full stack of analytical needs to gain biological insight from this data.  
+The multi-modal output of the G4X spatial sequencer comprises images, tables and annotated data matrices, which allow deep exploration of your sample. The `single_cell_data` folder in the G4X-output contains the final processed form of the data, after transcript and image signals have been aggregated for each each segmented cell. There are several excellent open-source tools available that enable the full stack of analytical needs to gain biological insight from this data.  
 
 #### Below we illustrate data import strategies for [Python](#if-you-are-working-in-python) and [R](#if-you-are-working-in-r) users:
 
@@ -45,7 +45,7 @@ adata = sample.load_adata(remove_nontargeting=False, load_clustering=False)
 
 ### 2. scanpy
 
-You can achieve the same result by pointing scanpy's `read_h5ad()` function the `feature_matrix.h5` in your G4X output directory
+You can achieve the same result by pointing scanpy's `read_h5ad()` function the `feature_matrix.h5` in your G4X-output directory
 
 ```py
 from pathlib import Path

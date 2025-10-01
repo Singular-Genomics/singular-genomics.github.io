@@ -17,13 +17,13 @@ These pages provide documentation, example workflows, and helper tools for analy
 ---
 ### Post-processing tools and helper models for G4X-data  
 
-With [G4X-helpers](https://github.com/Singular-Genomics/G4X-helpers) we provide an open-source toolkit for common post-processing tasks — such as applying custom segmentations or adding your own labels to the [G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/). You can access its core features from the command-line interface (CLI) and additionally import it as a standalone Python package to interact with your data.
+With [G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/) we provide an open-source toolkit for common post-processing tasks — such as applying custom segmentations or adding your own labels to the [G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/). You can access its core features from the command-line interface (CLI) and additionally import it as a standalone Python package to interact with your data.
 
 #### In this section, you can:
 
-+ learn how to [install](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/installation/) G4X-helpers on your system
-+ get started with [using](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/usage/) the command line interface (CLI)
-+ find a description of its [CLI features](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/features/) 
++ learn how to [install](https://docs.singulargenomics.com/G4X-helpers/installation/) G4X-helpers on your system
++ get started with [using](https://docs.singulargenomics.com/G4X-helpers/usage/) the command line interface (CLI)
++ find a description of its [CLI features](https://docs.singulargenomics.com/G4X-helpers/features/) 
 
 <br>
 
@@ -31,11 +31,11 @@ With [G4X-helpers](https://github.com/Singular-Genomics/G4X-helpers) we provide 
 ---
 ### Explore and visualize your G4X-data  
 
-The G4X Viewer is a Python-based, multi-purpose, interactive viewer specifically designed to help you explore your G4X data. The G4X Viewer is accessible through our [website](https://g4x-viewer.singulargenomics.com) or can be downloaded from [GitHub](https://github.com/Singular-Genomics/G4X-viewer) as a standalone application and hosted locally.
+The G4X-viewer is a Python-based, multi-purpose, interactive viewer specifically designed to help you explore your G4X-data. The G4X-viewer is accessible through our [website](https://g4x-viewer.singulargenomics.com) or can be downloaded from [GitHub](https://github.com/Singular-Genomics/G4X-viewer) as a standalone application and hosted locally.
 
 #### In this section, you can:
 
-+ find [resources](https://docs.singulargenomics.com/G4X-viewer/resources) to learn how to navigate your data with the G4X Viewer
++ find [resources](https://docs.singulargenomics.com/G4X-viewer/resources) to learn how to navigate your data with the G4X-viewer
 
 <br>
 
@@ -48,8 +48,8 @@ The files found in the output directory are compatible with popular Python libra
 
 #### In this section, you will find:
 
-+ details on the [G4X output](./g4x_data/g4x_output.md) files and their organization
-+ guides on [importing](./g4x_data/data_import.md) G4X data into popular analysis tools in Python and R 
++ details on the [G4X-output](./g4x_data/g4x_output.md) files and their organization
++ guides on [importing](./g4x_data/data_import.md) G4X-data into popular analysis tools in Python and R 
 
 <br>
 
@@ -57,11 +57,11 @@ The files found in the output directory are compatible with popular Python libra
 ---
 ### Get started analyzing your data  
 
-G4X Tutorials are a collection of example workflows that demonstrate how to analyze G4X data using popular Python and R libraries. These tutorials cover a wide range of topics, from basic data import and visualization to advanced analysis techniques.
+G4X Tutorials are a collection of example workflows that demonstrate how to analyze G4X-data using popular Python and R libraries. These tutorials cover a wide range of topics, from basic data import and visualization to advanced analysis techniques.
 
 #### In this section, you can:
 
-+ learn how to [plot spatial](./g4x_tutorials/plot_spatial.md) tissue information from the G4X data
++ learn how to [plot spatial](./g4x_tutorials/plot_spatial.md) tissue information from the G4X-data
 + generate novel nuclear or cytoplasmic [segmentations](./g4x_tutorials/segment_data.md) with popular models
 
 <br>
@@ -69,7 +69,7 @@ G4X Tutorials are a collection of example workflows that demonstrate how to anal
 ## support
 ---
 
-Got feedback or ideas for additional tutorials or documentaiton?  
+Got feedback or ideas for additional tutorials or documentation?  
 :material-arrow-right-thin: drop us a note at [care@singulargenomics.com](mailto:care@singulargenomics.com).  
 
 --8<-- "_core/_partials/end_cap.md"

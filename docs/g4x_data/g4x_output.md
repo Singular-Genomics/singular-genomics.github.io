@@ -1,6 +1,6 @@
 <br>
 
-# G4X output structure
+# G4X-output structure
 
 ## Sample directory tree
 ---
@@ -157,19 +157,19 @@ Directory structure depends on run type.
 ### g4x_viewer/
 
 !!! tip
-    The G4X Viewer is a web-based tool for visualizing and exploring G4X data. All files in this directory are designed to be loaded into and explored with the G4X Viewer. For more information on how to use the G4X Viewer, see [G4X Viewer](https://docs.singulargenomics.com/G4X-viewer/).
+    The G4X-viewer is a web-based tool for visualizing and exploring G4X-data. All files in this directory are designed to be loaded into and explored with the G4X-viewer. For more information on how to use the G4X-viewer, see [G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/).
 
 > `<sample_id>.bin:` Binary file containing the segmentation mask for the stitched image. Can be easily read in Python with numpy.
 
-> `<sample_id>.ome.tiff:` Multidimensional OME-TIFF image file. On windows, this may appear as `<sample_id>.ome`. This image contains aggregated images for all protein targets as well as nuclear stain. Can be loaded into any standard ome.tiff readers, including our G4X Viewer, and napari. *Multiomics runs only.*.
+> `<sample_id>.ome.tiff:` Multidimensional OME-TIFF image file. On windows, this may appear as `<sample_id>.ome`. This image contains aggregated images for all protein targets as well as nuclear stain. Can be loaded into any standard ome.tiff readers, including our G4X-viewer, and napari. *Multiomics runs only.*.
 
-> `<sample_id>_HE.ome.tiff:` OME-TIFF image file containing the fH&E stain images. Can be loaded into any standard OME-TIFF readers, including our G4X Viewer and napari.
+> `<sample_id>_HE.ome.tiff:` OME-TIFF image file containing the fH&E stain images. Can be loaded into any standard OME-TIFF readers, including our G4X-viewer and napari.
 
-> `<sample_id>_nuclear.ome.tiff:` OME-TIFF image file containing the nuclear stain images. Can be loaded into any standard OME-TIFF readers, including our G4X Viewer and napari.
+> `<sample_id>_nuclear.ome.tiff:` OME-TIFF image file containing the nuclear stain images. Can be loaded into any standard OME-TIFF readers, including our G4X-viewer and napari.
 
 > `<sample_id>_run_metadata.json:` JSON file containing much of the same information as the run_meta.json along with extra core metrics information (such as tissue area, total tx, etc).
 
-> `<sample_id>.tar:` Tarball containing all other files from this directory bundled into one file. This can be loaded into the G4X Viewer directly with the “single file upload” option to avoid dragging each file individually. May take longer to load than the individual files due to needing to untar the components before displaying on the Viewer.
+> `<sample_id>.tar:` Tarball containing all other files from this directory bundled into one file. This can be loaded into the G4X-viewer directly with the “single file upload” option to avoid dragging each file individually. May take longer to load than the individual files due to needing to untar the components before displaying on the Viewer.
 
 <br>
 
@@ -177,7 +177,7 @@ Directory structure depends on run type.
 
 > `core_metrics.csv:` CSV file containing a set of core metrics for the tissue block including total transcripts, total area, number of cells and more.
 
-> `protein_core_metrics.csv:` CSV file containing a set of core protein metrics for the tissue block including SNR, background intensity, and Fisher's exact scores for the coocurrence of the protein signal with its associated transcript signal (`<protein>_fisher_score`) and a random background (`<protein>_fisher_score_background`). These scores indicate the likelihood of the signal being true signal compared to the measured background. *Multiomics runs only.*
+> `protein_core_metrics.csv:` CSV file containing a set of core protein metrics for the tissue block including SNR, background intensity, and Fisher's exact scores for the co-occurrence of the protein signal with its associated transcript signal (`<protein>_fisher_score`) and a random background (`<protein>_fisher_score_background`). These scores indicate the likelihood of the signal being true signal compared to the measured background. *Multiomics runs only.*
 
 > `per_area_metrics.csv:` CSV file containing a set of per-area metrics for the tissue block (coordinate location, number of transcripts, and number of cells), separated out into images from before the images were stitched together into one whole block.
 

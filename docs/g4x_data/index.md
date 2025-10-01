@@ -1,6 +1,6 @@
 <br>
 
-# :material-map-legend: G4X Data
+# :material-map-legend: G4X-data
 #### Output reference and analysis import guides.  
 
 The G4X produces multi-modal output containing tables, images, arrays and annotated matrices for single-cell analysis.
@@ -8,7 +8,7 @@ The files found in the output directory are compatible with popular Python libra
 
 #### In this section you will find:
 
-+ details on the [G4X output](./g4x_output.md) files and their organization
-+ guides on [importing](./data_import.md) G4X data into popular analysis tools in Python and R 
++ details on the [G4X-output](./g4x_output.md) files and their organization
++ guides on [importing](./data_import.md) G4X-data into popular analysis tools in Python and R 
 
 --8<-- "_core/_partials/end_cap.md"
