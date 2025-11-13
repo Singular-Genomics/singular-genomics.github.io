@@ -77,3 +77,4 @@ Got feedback or ideas for additional tutorials or documentation?
 :material-arrow-right-thin: drop us a note at [care@singulargenomics.com](mailto:care@singulargenomics.com).  
 
 --8<-- "_core/_partials/end_cap.md"
+<br>
