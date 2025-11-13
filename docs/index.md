@@ -1,4 +1,8 @@
 ---
+title: rich-click
+hide:
+  - title
+  - navigation
 toc_depth: 2
 ---
 
