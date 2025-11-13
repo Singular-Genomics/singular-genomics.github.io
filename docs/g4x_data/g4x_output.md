@@ -9,20 +9,17 @@ Directory structure depends on run type.
 === "Transcript & Protein"
 
     ```
-    <sample_root>
+    <sample_1>
     │
-    ├── diagnostics
-    │   └── transcript_table.parquet
-    │
-    ├── g4x_viewer 
+    ├── /g4x_viewer/
     │   ├── <sample_1>.bin
-    │   ├── <sample_1>.ome.tiff              
+    │   ├── <sample_1>.ome.tiff
     │   ├── <sample_1>.tar
     │   ├── <sample_1>_HE.ome.tiff
     │   ├── <sample_1>_nuclear.ome.tiff
     │   └── <sample_1>_run_metadata.json
     │
-    ├── h_and_e 
+    ├── /h_and_e/
     │   ├── eosin.jp2
     │   ├── eosin_thumbnail.png
     │   ├── h_and_e.jp2
@@ -30,38 +27,38 @@ Directory structure depends on run type.
     │   ├── nuclear.jp2
     │   └── nuclear_thumbnail.png
     │
-    ├── metrics 
+    ├── /metrics/
     │   ├── core_metrics.csv
-    |   ├── protein_core_metrics.csv
-    │   └── per_area_metrics.csv
+    │   ├── per_area_metrics.csv
+    │   ├── protein_core_metrics.csv
+    │   └── transcript_core_metrics.csv
     │
-    ├── protein                             
+    ├── /protein/
+    │   ├── bead_mask.npz
     │   ├── <protein_1>.jp2
     │   ├── <protein_1>_thumbnail.png
     │   ├── <protein_2>.jp2
     │   ├── <protein_2>_thumbnail.png
-    │   └── …
+    │   └── ...
     │
-    ├── protein_panel.csv                   
+    ├── /rna/
+    │   ├── transcript_table.csv.gz
+    │   └── transcript_table.parquet
     │
-    ├── rna
-    │   └── transcript_table.csv.gz
-    │
-    ├── run_meta.json
-    │
-    ├── samplesheet.csv
-    │
-    ├── segmentation
+    ├── /segmentation/
     │   └── segmentation_mask.npz
     │
-    ├── single_cell_data
-    │   ├── cell_by_protein.csv.gz          
+    ├── /single_cell_data/
+    │   ├── cell_by_protein.csv.gz
     │   ├── cell_by_transcript.csv.gz
     │   ├── cell_metadata.csv.gz
     │   ├── clustering_umap.csv.gz
     │   ├── dgex.csv.gz
     │   └── feature_matrix.h5
     │
+    ├── protein_panel.csv
+    ├── run_meta.json
+    ├── samplesheet.csv
     ├── summary_<sample_1>.html
     └── transcript_panel.csv
     ```
@@ -69,19 +66,16 @@ Directory structure depends on run type.
 === "Transcript"
 
     ```
-    <sample_root>
+    <sample_1>
     │
-    ├── diagnostics
-    │   └── transcript_table.parquet
-    │
-    ├── g4x_viewer
+    ├── /g4x_viewer/
     │   ├── <sample_1>.bin
     │   ├── <sample_1>.tar
     │   ├── <sample_1>_HE.ome.tiff
     │   ├── <sample_1>_nuclear.ome.tiff
     │   └── <sample_1>_run_metadata.json
     │
-    ├── h_and_e
+    ├── /h_and_e/
     │   ├── eosin.jp2
     │   ├── eosin_thumbnail.png
     │   ├── h_and_e.jp2
@@ -89,27 +83,27 @@ Directory structure depends on run type.
     │   ├── nuclear.jp2
     │   └── nuclear_thumbnail.png
     │
-    ├── metrics
+    ├── /metrics/
     │   ├── core_metrics.csv
-    │   └── per_area_metrics.csv
+    │   ├── per_area_metrics.csv
+    │   ├── protein_core_metrics.csv
+    │   └── transcript_core_metrics.csv
     │
-    ├── rna
-    │   └── transcript_table.csv.gz
-    │
-    ├── run_meta.json
-    │
-    ├── samplesheet.csv
-    │
-    ├── segmentation
+    ├── /rna/
+    │   ├── transcript_table.csv.gz
+    │   └── transcript_table.parquet
     │   └── segmentation_mask.npz
     │
-    ├── single_cell_data
+    ├── /single_cell_data/
     │   ├── cell_by_transcript.csv.gz
     │   ├── cell_metadata.csv.gz
     │   ├── clustering_umap.csv.gz
     │   ├── dgex.csv.gz
     │   └── feature_matrix.h5
     │
+    ├── run_meta.json
+    ├── samplesheet.csv
+    ├── segmentation
     ├── summary_<sample_1>.html
     └── transcript_panel.csv
     ```
@@ -134,27 +128,7 @@ Directory structure depends on run type.
 
 <br>
 
-### diagnostics/
-
-> `transcript_table.parquet:` Parquet file containing all decoded and non-decoded transcripts and associated metadata (e.g. spatial coordinate, gene identity, cell identity (if assigned to a cell), quality score, sequence). Parquet files can be loaded in Python using the polars, fastparquet, pandas, and pyarrow packages.
-
-??? note "Expand to see column descriptions"
-    | column | type | description |
-    |-------|-----|----------|
-    | `x_coord_shift` | *float* | The x coordinate for the transcript (shifted to global coordinates) |
-    | `y_coord_shift` | *float* | The y coordinate for the transcript (shifted to global coordinates) |
-    | `z` | *int* | z layer of identified transcript |
-    | `demuxed` | *bool* | Whether or not the transcript was demultiplexed |
-    | `transcript_condensed` | *str* | Shortened name of transcript |
-    | `meanQS` | *float* | Mean quality score for the transcript |
-    | `cell_id` | *uint* | Cell ID  |
-    | `sequence_to_demux` | *str* | Sequence identified that will be demultiplexed |
-    | `transcript` | *str* | Long form transcript name (specific to single probe) |
-    | `TXUID` | *str* | Unique identifier for the transcript |
-
-<br> 
-
-### g4x_viewer/
+### /g4x_viewer/
 
 !!! tip
     The G4X-viewer is a web-based tool for visualizing and exploring G4X-data. All files in this directory are designed to be loaded into and explored with the G4X-viewer. For more information on how to use the G4X-viewer, see [G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/).
@@ -169,11 +143,11 @@ Directory structure depends on run type.
 
 > `<sample_id>_run_metadata.json:` JSON file containing much of the same information as the run_meta.json along with extra core metrics information (such as tissue area, total tx, etc).
 
-> `<sample_id>.tar:` Tarball containing all other files from this directory bundled into one file. This can be loaded into the G4X-viewer directly with the “single file upload” option to avoid dragging each file individually. May take longer to load than the individual files due to needing to untar the components before displaying on the Viewer.
+> `<sample_id>.tar:` Tarball containing the spatial transcript data for the specified tissue block, not to be confused with the aggregate .tar file used for the G4X Viewer single file upload option.
 
 <br>
 
-### metrics/
+### /metrics/
 
 > `core_metrics.csv:` CSV file containing a set of core metrics for the tissue block including total transcripts, total area, number of cells and more.
 
@@ -181,9 +155,11 @@ Directory structure depends on run type.
 
 > `per_area_metrics.csv:` CSV file containing a set of per-area metrics for the tissue block (coordinate location, number of transcripts, and number of cells), separated out into images from before the images were stitched together into one whole block.
 
+> `transcript_core_metrics.csv:` Replaces core_metrics.csv in most experiments from Nov. 2025 onward. A CSV file containing a set of core metrics for the tissue block including total transcripts, total area, number of cells and more.
+
 <br>
 
-### h_and_e/
+### /h_and_e/
 
 !!! tip
     The .jp2 images in this folder and the `/protein/` folder are suitable to use for both nuclear and cytoplasmic segmentation. For more information on how you might do this, see [segment data](../g4x_tutorials/segment_data.md).
@@ -202,7 +178,9 @@ Directory structure depends on run type.
 
 <br>
 
-### protein/ *(protein runs only)*
+### /protein/ *(Multiomics runs only)*
+
+> `bead_mask.npz:` This image contains a binary numpy array (.npz) file which is nonzero anywhere there is a focusing bead identified on the tissue block and 0 anywhere else. This is useful to remove beads from out fH&E images.
 
 > `<protein_name>.jp2:` Full-sized JPEG image used for analysis purposes. Shows the `<protein_name>` stain for selected tissue block.
 
@@ -210,19 +188,35 @@ Directory structure depends on run type.
 
 <br>
 
-### rna/
+### /rna/
 
 > `transcript_table.csv.gz:` CSV file containing a transcript table showing all demuxed transcripts on the whole tissue block. Contains coordinate information, z-layer, gene identity, and cell_id fields. All transcripts here are high confidence transcripts post-filtering and processing.
 
+> `transcript_table.parquet:` Parquet file containing all decoded and non-decoded transcripts and associated metadata (e.g. spatial coordinate, gene identity, cell identity (if assigned to a cell), quality score, sequence). Parquet files can be loaded in Python using the polars, fastparquet, pandas, and pyarrow packages.
+
+??? note "Expand to see column descriptions"
+    | column | type | description |
+    |-------|-----|----------|
+    | `x_coord_shift` | *float* | The x coordinate for the transcript (shifted to global coordinates) |
+    | `y_coord_shift` | *float* | The y coordinate for the transcript (shifted to global coordinates) |
+    | `z` | *int* | z layer of identified transcript |
+    | `demuxed` | *bool* | Whether or not the transcript was demultiplexed |
+    | `transcript_condensed` | *str* | Shortened name of transcript |
+    | `meanQS` | *float* | Mean quality score for the transcript |
+    | `cell_id` | *uint* | Cell ID  |
+    | `sequence_to_demux` | *str* | Sequence identified that will be demultiplexed |
+    | `transcript` | *str* | Long form transcript name (specific to single probe) |
+    | `TXUID` | *str* | Unique identifier for the transcript |
+
 <br>
 
-### segmentation/
+### /segmentation/
 
 > `segmentation_mask.npz:` Compressed numpy array file containing the segmentation mask. This can be easily read with the `numpy.load()` function.
 
 <br>
 
-### single_cell_data/
+### /single_cell_data/
 
 > `cell_by_protein.csv.gz:` Gzipped CSV file in a cell x protein intensity format. Each entry in the table is the average protein intensity for a given protein in a given cell. *Multiomics runs only.*
 
@@ -241,8 +235,8 @@ Directory structure depends on run type.
     | `log1p_n_genes_by_counts` | *float* | Log number of unique genes detected |
     | `log1p_total_counts` | *float* | Log number of total transcripts |
     | `n_genes_by_counts` | *int* | Number of unique genes detected |
-    | `nuclei_area` | *int* | Area of the nuclear segmentation |
-    | `nuclei_expanded_area` | *int* | Area of the expanded nuclear segmentation |
+    | `nuclei_area` | *int* | Area of the nuclear segmentation in um^2 |
+    | `nuclei_expanded_area` | *int* | Area of the expanded nuclear segmentation in um^2 |
     | `total_counts` | *int* | Total transcript counts |
 
 > `clustering_umap.csv.gz:` Gzipped CSV file containing the matrix of cell cluster annotations and UMAP coordinates for each cell. This is used to visualize the clustering of cells in 2D for a given leiden resolution or UMAP embedding setting.

@@ -15,6 +15,10 @@ exclude_docs: |
 nav:
   - Docs Home: index.md
 
+  - G4X-helpers: https://docs.singulargenomics.com/G4X-helpers/
+
+  - G4X-viewer: https://docs.singulargenomics.com/G4X-viewer/
+
   - G4X-data:
       - g4x_data/index.md
       - G4X-output: g4x_data/g4x_output.md
