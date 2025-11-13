@@ -1,5 +1,5 @@
 ---
-title: rich-click
+title: Singular-Genomics Docs
 hide:
   - title
   - navigation
