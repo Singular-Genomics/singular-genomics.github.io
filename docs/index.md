@@ -70,7 +70,7 @@ G4X Tutorials are a collection of example workflows that demonstrate how to anal
 
 <br>
 
-## support
+## Support
 ---
 
 Got feedback or ideas for additional tutorials or documentation?  

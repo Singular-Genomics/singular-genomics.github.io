@@ -31,4 +31,6 @@ nav:
       - plot spatial: g4x_tutorials/plot_spatial.md
       - segment data: g4x_tutorials/segment_data.md
 
-  - Changelog: changelog.md
+#   - Changelog: changelog.md
+
+
