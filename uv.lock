@@ -441,7 +441,7 @@ wheels = [
 
 [[package]]
 name = "singular-genomics-github-io"
-version = "0.2.3"
+version = "0.2.4"
 source = { virtual = "." }
 
 [package.dev-dependencies]

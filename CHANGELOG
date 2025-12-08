@@ -1,5 +1,10 @@
 # Changelog
 
+## `v0.2.4` — [2025-12-07]
+
+- update _core [[6955599](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/6955599)]
+- remove changelog link & minor formatting [[05c82cd](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/05c82cd)]
+
 ## `v0.2.3` — [2025-11-13]
 
 - docs: format index.md 
