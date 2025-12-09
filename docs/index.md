@@ -17,7 +17,8 @@ These pages provide documentation, example workflows, and helper tools for analy
 
 <br>
 
-## [:material-code-tags: G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/)
+<!-- ## [:material-code-tags: G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/) -->
+## :material-code-tags: G4X-helpers
 ---
 ### Post-processing tools and helper models for G4X-data  
 
@@ -31,7 +32,8 @@ With [G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/) we provide an
 
 <br>
 
-## [:material-magnify: G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/) 
+<!-- ## [:material-magnify: G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/)  -->
+## :material-magnify: G4X-viewer
 ---
 ### Explore and visualize your G4X-data  
 
@@ -43,7 +45,8 @@ The G4X-viewer is a Python-based, multi-purpose, interactive viewer specifically
 
 <br>
 
-## [:material-map-legend: G4X-data](./g4x_data/index.md)
+<!-- ## [:material-map-legend: G4X-data](./g4x_data/index.md) -->
+## :material-map-legend: G4X-data
 ---
 ### Reference documentation for G4X-output files  
 
@@ -57,7 +60,8 @@ The files found in the output directory are compatible with popular Python libra
 
 <br>
 
-## [:material-television-guide: G4X-tutorials](./g4x_tutorials/index.md)
+<!-- ## [:material-television-guide: G4X-tutorials](./g4x_tutorials/index.md) -->
+## :material-television-guide: G4X-tutorials
 ---
 ### Get started analyzing your data  
 
