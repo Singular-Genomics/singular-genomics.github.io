@@ -1,5 +1,11 @@
 # Changelog
 
+## `v0.3.0` — [2025-12-09]
+
+- docs: update _core with new colors [[17e9487](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/17e9487)]
+- update core [[de1ca3c](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/de1ca3c)]
+- remove links from index [[db85358](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/db85358)]
+
 ## `v0.2.4` — [2025-12-07]
 
 - update _core [[6955599](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/6955599)]
