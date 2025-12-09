@@ -1,5 +1,5 @@
 ---
-title: Singular-Genomics Docs
+title: Docs Home
 hide:
   - title
   - navigation
