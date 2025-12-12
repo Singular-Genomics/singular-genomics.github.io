@@ -2,7 +2,7 @@
 
 [project]
 name = "singular-genomics-github-io"
-version = "0.3.0"
+version = "0.3.1"
 description = "Core Docs for Singular Genomics"
 requires-python = ">=3.10"
 
