@@ -11,6 +11,8 @@ repo_url: https://github.com/Singular-Genomics/singular-genomics.github.io
 theme:
   features:
     - navigation.tabs
+    - navigation.indexes
+    - navigation.expand
 
 nav:
   - Docs Home: index.md
@@ -23,14 +25,12 @@ nav:
 
   - G4X-data:
       - g4x_data/index.md
-      - G4X-output: g4x_data/g4x_output.md
-      - data import: g4x_data/data_import.md
+      - Output files: g4x_data/g4x_output.md
+      - Data import: g4x_data/data_import.md
 
   - G4X-tutorials:
-      - Introduction: g4x_tutorials/index.md
-      - plot spatial: g4x_tutorials/plot_spatial.md
-      - segment data: g4x_tutorials/segment_data.md
+      - ./g4x_tutorials/index.md
+      - Plot spatial: g4x_tutorials/plot_spatial.md
+      - Segment data: g4x_tutorials/segment_data.md
 
 #   - Changelog: changelog.md
-
-

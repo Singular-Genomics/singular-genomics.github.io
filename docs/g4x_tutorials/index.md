@@ -1,8 +1,8 @@
 <br>
 
-# :material-television-guide: G4X Tutorials
+# :material-television-guide: G4X-tutorials
+#### Getting started analyzing G4X-data
 ---
-
 G4X Tutorials are a collection of example workflows that demonstrate how to analyze G4X-data using popular Python and R libraries. These tutorials cover a wide range of topics, from basic visualizations to advanced analysis techniques.
 
 #### In this section you can:
