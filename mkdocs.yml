@@ -8,12 +8,6 @@ site_description: Singular Genomics G4X documentation
 repo_name: singular-genomics.github.io
 repo_url: https://github.com/Singular-Genomics/singular-genomics.github.io
 
-theme:
-  features:
-    - navigation.tabs
-    - navigation.indexes
-    - navigation.expand
-
 nav:
   - Docs Home: index.md
   
@@ -26,6 +20,7 @@ nav:
   - G4X-data:
       - g4x_data/index.md
       - Output files: g4x_data/g4x_output.md
+      - Output tree: g4x_data/tree.md
       - Data import: g4x_data/data_import.md
 
   - G4X-tutorials:
