@@ -19,8 +19,8 @@ nav:
 
   - G4X-data:
       - g4x_data/index.md
-      - Output files: g4x_data/g4x_output.md
-      - Output tree: g4x_data/tree.md
+      - Output files: g4x_data/output_files.md
+      - Output structure: g4x_data/output_structure.md
       - Data import: g4x_data/data_import.md
 
   - G4X-tutorials:
