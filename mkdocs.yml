@@ -22,7 +22,7 @@ nav:
       - Output structure: g4x_data/output_structure.md
       - Output directories:
         - g4x_data/output_files/index.md
-        - root: g4x_data/output_files/root.md
+        - root_directory: g4x_data/output_files/root_directory.md
         - g4x_viewer: g4x_data/output_files/g4x_viewer.md
         - h_and_e: g4x_data/output_files/h_and_e.md
         - metrics: g4x_data/output_files/metrics.md

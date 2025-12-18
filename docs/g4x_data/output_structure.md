@@ -8,9 +8,11 @@ This page outlines the directory and file structure produced by the G4X processi
 
 ```
 <root_directory>
-│
-├── diagnostics
-│   └── (intentionally empty)
+├── summary_{sample_id}.html
+├── transcript_panel.csv
+├── protein_panel.csv                   
+├── samplesheet.csv
+├── run_meta.json
 │
 ├── g4x_viewer 
 │   ├── {sample_id}_multiplex.ome.tiff
@@ -58,11 +60,9 @@ This page outlines the directory and file structure produced by the G4X processi
 │   ├── protein_singlecell_correlation.csv
 │   └─── rna_protein_singlecell_correlation.csv
 │
-├── summary_{sample_id}.html
-├── transcript_panel.csv
-├── protein_panel.csv                   
-├── samplesheet.csv
-└── run_meta.json
+└── diagnostics
+    └── (intentionally empty)
+
 
 ```
  
