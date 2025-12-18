@@ -8,7 +8,7 @@
 > Parquet file containing raw transcript feature information pre-demultiplexing. It lists sequence, coordinates and quality scores of all detected features. This file is required for the [`redemux`](https://docs.singulargenomics.com/G4X-helpers/features/redemux/) feature of G4X-helpers.
 
 
-| column | dtype | description |
+| column | type | description |
 |-------|-----|----------|
 | `TXUID` | *str* | Unique identifier for the transcript |
 | `x_pixel_coordinate` | *float* | The x-coordinate for the transcript |
