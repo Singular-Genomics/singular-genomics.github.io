@@ -19,9 +19,21 @@ nav:
 
   - G4X-data:
       - g4x_data/index.md
-      - Output files: g4x_data/output_files.md
       - Output structure: g4x_data/output_structure.md
+      - Output directories:
+        - g4x_data/output_files/index.md
+        - root: g4x_data/output_files/root.md
+        - g4x_viewer: g4x_data/output_files/g4x_viewer.md
+        - h_and_e: g4x_data/output_files/h_and_e.md
+        - metrics: g4x_data/output_files/metrics.md
+        - protein: g4x_data/output_files/protein.md
+        - rna: g4x_data/output_files/rna.md
+        - segmentation: g4x_data/output_files/segmentation.md
+        - single_cell_data: g4x_data/output_files/single_cell_data.md
+        - diagnostics: g4x_data/output_files/diagnostics.md
+      
       - Data import: g4x_data/data_import.md
+      #   - Output files: g4x_data/output_files.md
 
   - G4X-tutorials:
       - ./g4x_tutorials/index.md

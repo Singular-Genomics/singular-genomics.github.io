@@ -2,7 +2,8 @@
 
 # Output structure
 
-## Sample directory tree
+This page outlines the directory and file structure produced by the G4X processing pipeline. The overview below shows the main folders and files, helping users navigate and understand the organization of the output directory. For detailed descriptions of each file, see the [output files](output_files/index.md) section.
+
 ---
 
 ```

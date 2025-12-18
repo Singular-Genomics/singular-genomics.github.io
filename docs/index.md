@@ -55,7 +55,7 @@ The files found in the output directory are compatible with popular Python libra
 
 #### In this section, you will find:
 
-+ details on the [G4X-output](./g4x_data/g4x_output.md) files and their organization
++ details on the [G4X-output](./g4x_data/output_files/index.md) files and their organization
 + guides on [importing](./g4x_data/data_import.md) G4X-data into popular analysis tools in Python and R 
 
 <br>
