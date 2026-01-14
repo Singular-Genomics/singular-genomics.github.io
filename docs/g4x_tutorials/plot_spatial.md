@@ -2,7 +2,7 @@
 
 # Plotting Spatial Data on the G4X
 
-One of the first things you'll want to do with your spatial data is to visualize your data on a spatial plot. [G4X outputs](../g4x_data/g4x_output.md) are designed to make this information easy to access and plot in a variety of ways. With the tables and data structures provided, you can create a variety of spatial visualizations using tools like [Seurat](https://satijalab.org/seurat/articles/install_v5.html) in R or [scanpy](https://scanpy.readthedocs.io/en/stable/index.html) in Python.
+One of the first things you'll want to do with your spatial data is to visualize your data on a spatial plot. [G4X outputs](../g4x_data/output_files/index.md) are designed to make this information easy to access and plot in a variety of ways. With the tables and data structures provided, you can create a variety of spatial visualizations using tools like [Seurat](https://satijalab.org/seurat/articles/install_v5.html) in R or [scanpy](https://scanpy.readthedocs.io/en/stable/index.html) in Python.
 
 <br>
 

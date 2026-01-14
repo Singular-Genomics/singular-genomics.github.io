@@ -4,7 +4,7 @@
 
 Here, we lay out a basic approach to resegment your G4X-data. We strongly encourage you to start this process by looking at the existing segmentation using our [G4X-viewer](https://docs.singulargenomics.com/G4X-viewer/). This will allow you to identify where it fails to capture your desired cell morphology. 
 
-These instructions are designed to help you take the .jp2 images described in the [G4X-data output](../g4x_data/g4x_output.md) documentation and run your own segmentation using Cellpose 2. This is typically an iterative process.
+These instructions are designed to help you take the .jp2 images described in the [G4X-data output](../g4x_data/output_files/index.md) documentation and run your own segmentation using Cellpose 2. This is typically an iterative process.
 
 <br>
 ---
