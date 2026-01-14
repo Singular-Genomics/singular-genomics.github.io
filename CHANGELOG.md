@@ -1,5 +1,9 @@
 # Changelog
 
+## `v0.4.0` — [2026-01-13]
+
+- Update output refs (#4) [[2d7de88](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/2d7de88)]
+
 ## `v0.3.1` — [2025-12-12]
 
 - update _core and minor page alignments [[5d4d728](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/5d4d728)]
