@@ -8,85 +8,74 @@ This page outlines the directory and file structure produced by the G4X processi
 === "Multiomics Run [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics run")"
     ```
     <root_directory>
-    ├── summary_{sample_id}.html
-    ├── transcript_panel.csv
-    ├── protein_panel.csv                   
+    ├── sample.g4x
     ├── samplesheet.csv
-    ├── run_meta.json
+    ├── transcript_manifest.csv
+    ├── protein_panel.csv                   
+    ├── summary_{sample_id}.html
     │
-    ├── g4x_viewer 
-    │   ├── {sample_id}_multiplex.ome.tiff
-    │   ├── {sample_id}_nuclear.ome.tiff
-    │   ├── {sample_id}_HE.ome.tiff
-    │   ├── {sample_id}_segmentation.bin
-    │   ├── {sample_id}_transcripts.tar
-    │   └── {sample_id}_run_metadata.json
+    ├── g4x-viewer.zarr
+    │   ├── images
+    │   ├── cells
+    │   ├── transcripts
+    │   └── misc
     │
     ├── h_and_e 
-    │   ├── eosin.jp2
-    │   ├── eosin_thumbnail.png
-    │   ├── h_and_e.jp2
-    │   ├── h_and_e_thumbnail.jpg
-    │   ├── nuclear.jp2
-    │   └── nuclear_thumbnail.png
+    │   ├── h_and_e.ome.tiff
+    │   ├── nuclear.ome.tiff
+    │   ├── cytoplasmic.ome.tiff
+    │   └── thumbs
     │
     ├── metrics 
     │   ├── transcript_core_metrics.csv
-    |   ├── protein_core_metrics.csv
+    │   ├── protein_core_metrics.csv
     │   └── per_area_metrics.csv
     │
     ├── protein                             
-    │   ├── bead_mask.npz
-    │   ├── {protein_1}.jp2
-    │   ├── {protein_1}_thumbnail.png
-    │   ├── {protein_2}.jp2
-    │   ├── {protein_2}_thumbnail.png
+    │   ├── {protein_1}.ome.tiff
+    │   ├── {protein_2}.ome.tiff
+    │   ├── thumbs
     │   └── …
     │
     ├── rna
     │   ├── raw_features.parquet
     │   └── transcript_table.csv.gz
     │
-    ├── segmentation
-    │   └── segmentation_mask.npz
+    ├── masks
+    │   ├── segmentation_mask.npz
+    │   └── bead_mask.npz
     │
     ├── single_cell_data
-    │   ├── feature_matrix.h5         
+    │   ├── sc_processed.h5ad         
+    │   ├── cell_by_gene.csv.gz
     │   ├── cell_by_protein.csv.gz          
-    │   ├── cell_by_transcript.csv.gz
     │   ├── cell_metadata.csv.gz
     │   ├── clustering_umap.csv.gz
     │   ├── dgex.csv.gz
-    │   ├── protein_singlecell_correlation.csv
-    │   └── rna_protein_singlecell_correlation.csv
-    │
-    └── diagnostics
-        └── (intentionally empty)
+    │   ├── protein_sc_correlation.csv
+    │   └── rna_protein_sc_correlation.csv
 
     ```
  
 === "Transcript Run"
     ```
     <root_directory>
-    ├── summary_{sample_id}.html
-    ├── transcript_panel.csv
+    ├── sample.g4x
     ├── samplesheet.csv
-    ├── run_meta.json
+    ├── transcript_manifest.csv
+    ├── summary_{sample_id}.html
     │
-    ├── g4x_viewer 
-    │   ├── {sample_id}_nuclear.ome.tiff
-    │   ├── {sample_id}_HE.ome.tiff
-    │   ├── {sample_id}_segmentation.bin
-    │   ├── {sample_id}_transcripts.tar
-    │   └── {sample_id}_run_metadata.json
+    ├── g4x-viewer.zarr
+    │   ├── images
+    │   ├── cells
+    │   ├── transcripts
+    │   └── misc
     │
     ├── h_and_e 
-    │   ├── eosin.jp2
-    │   ├── eosin_thumbnail.png
-    │   ├── h_and_e.jp2
-    │   ├── h_and_e_thumbnail.jpg
-    │   ├── nuclear.jp2
-    │   └── nuclear_thumbnail.png
+    │   ├── h_and_e.ome.tiff
+    │   ├── nuclear.ome.tiff
+    │   ├── cytoplasmic.ome.tiff
+    │   └── thumbs
     │
     ├── metrics 
     │   ├── transcript_core_metrics.csv
@@ -96,18 +85,16 @@ This page outlines the directory and file structure produced by the G4X processi
     │   ├── raw_features.parquet
     │   └── transcript_table.csv.gz
     │
-    ├── segmentation
-    │   └── segmentation_mask.npz
+    ├── masks
+    │   ├── segmentation_mask.npz
+    │   └── bead_mask.npz
     │
     ├── single_cell_data
-    │   ├── feature_matrix.h5               
-    │   ├── cell_by_transcript.csv.gz
+    │   ├── sc_processed.h5ad               
+    │   ├── cell_by_gene.csv.gz
     │   ├── cell_metadata.csv.gz
     │   ├── clustering_umap.csv.gz
     │   └── dgex.csv.gz
-    │
-    └── diagnostics
-        └── (intentionally empty)
 
     ```
 

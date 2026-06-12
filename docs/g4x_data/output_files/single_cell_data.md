@@ -10,19 +10,26 @@
 
 | name | type | description |
 |------|-----|----------|
-| `label` | *str* | Unique cell-id derived from segmentation mask |
+| `cell_id` | *str* | Unique cell identifier derived from the segmentation mask |
+| `sample_id` | *str* | Sample identifier |
+| `tissue_type` | *str* | Tissue type from sample metadata |
+| `block` | *str* | Tissue block identifier from sample metadata |
+| `seg_source` | *str* | Segmentation source used to generate the cell |
 | `cell_x/y` | *float* | x/y coordinate of the cell centroid |
-| `nuclei_area` | *int* | Area of the nuclear segmentation |
-| `nuclei_expanded_area` | *int* | Area of the expanded nuclear segmentation |
+| `cell_area_um` | *float* | Area of the expanded cell segmentation in µm<sup>2</sup> |
+| `nuclei_area_um` | *float* | Area of the nuclear segmentation in µm<sup>2</sup> |
 | `total_counts` | *int* | Total transcript counts |
 | `log1p_total_counts` | *float* | Log number of total transcripts |
 | `n_genes_by_counts` | *int* | Number of unique genes detected |
 | `log1p_n_genes_by_counts` | *float* | Log number of unique genes detected |
+| `total_counts_ctrl` | *int* | Total control probe counts |
+| `log1p_total_counts_ctrl` | *float* | Log number of control probe counts |
+| `pct_counts_ctrl` | *float* | Percentage of counts assigned to control probes |
 | `*stain_intensity_mean` | *float* | Mean intensity for nuclear and cytoplasmic stains |
 | `<protein>_intensity_mean` | *float* | Mean intensity for a given protein  [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics runs only")|
 
-### `cell_by_transcript.csv.gz`
-> CSV file containing the cell x transcript matrix. Each entry in the table is the counts for a given transcript in a given cell.
+### `cell_by_gene.csv.gz`
+> CSV file containing the cell x gene matrix. Each entry in the table is the count for a given gene in a given cell. Control probes are included as additional columns when present.
 
 ### `clustering_umap.csv.gz`
 > CSV file containing pre-computed cluster annotations and UMAP coordinates for each cell. 
@@ -33,24 +40,24 @@
 
 | column  | type | description  |
 |-------|-----|----------|
-| `names`  | *str* | Gene symbol  |
-| `scores`  | *float* | Z-score from Wilcoxon rank-sum test  |
-| `logfoldchanges`  | *float* | LogFoldChange for the given cluster compared to *all* other clusters combined |
-| `pvals`  | *float* | P-value from Wilcoxon rank-sum test |
-| `pvals_adj`  | *float* | Adjusted P-value  |
+| `gene_id`  | *str* | Gene identifier  |
+| `score`  | *float* | Z-score from Wilcoxon rank-sum test  |
+| `logfoldchange`  | *float* | LogFoldChange for the given cluster compared to *all* other clusters combined |
+| `pval`  | *float* | P-value from Wilcoxon rank-sum test |
+| `pval_adj`  | *float* | Adjusted P-value  |
 | `pct_nz_group`  | *float* | Percentage of non-zero values in the given cluster.  |
 | `pct_nz_reference`  | *float* | Percentage of non-zero values in all cells outside the given cluster.  |
-| `group`  | *int* | Leiden cluster identity  |
+| `cluster_id`  | *str* | Leiden cluster identity  |
 | `leiden_res`  | *str* | Leiden clustering resolution that this entry is derived from (1 per gene per cluster) |
 
-### `feature_matrix.h5`
-> H5 file containing the cell by transcript matrix with cell and transcript metadata. This file can be loaded into Python and used in `scanpy` or a number of other pipelines. See [data import](../data_import.md). The h5.obs table is equivalent to [cell_metadata](#cell_metadatacsvgz)
+### `sc_processed.h5ad`
+> AnnData file containing the cell by gene matrix with cell and gene metadata. This file can be loaded into Python and used in `scanpy` or a number of other pipelines. See [data import](../data_import.md). The `.obs` table is equivalent to [cell_metadata](#cell_metadatacsvgz).
 
 ### `cell_by_protein.csv.gz` [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics runs only")
 > CSV file containing cell x protein intensity matrix. Each entry in the table is the average protein intensity for a given protein in a cell.
 
-### `rna_protein_singlecell_correlation.csv` [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics runs only")
+### `rna_protein_sc_correlation.csv` [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics runs only")
 > CSV file containing a square correlation matrix between selected transcript counts and protein intensity means, computed per cell. Useful for quickly checking concordance between RNA and protein markers (e.g. `CD4` counts vs `CD4_intensity_mean`).
 
-### `protein_singlecell_correlation.csv` [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics runs only")
+### `protein_sc_correlation.csv` [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics runs only")
 > CSV file containing a protein-by-protein correlation matrix of per-cell intensity means, allowing assessment of protein marker co-expression.

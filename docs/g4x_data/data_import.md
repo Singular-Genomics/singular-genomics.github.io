@@ -2,7 +2,7 @@
 
 # G4X-data import
 
-The multi-modal output of the G4X spatial sequencer comprises images, tables and annotated data matrices, which allow deep exploration of your sample. The `single_cell_data` folder in the G4X-output contains the final processed form of the data, after transcript and image signals have been aggregated for each each segmented cell. There are several excellent open-source tools available that enable the full stack of analytical needs to gain biological insight from this data.  
+The multi-modal output of the G4X spatial sequencer comprises images, tables and annotated data matrices, which allow deep exploration of your sample. The `single_cell_data` folder in the G4X-data directory contains the final processed form of the data, after transcript and image signals have been aggregated for each segmented cell. There are several excellent open-source tools available that enable the full stack of analytical needs to gain biological insight from this data.  
 
 #### Below we illustrate data import strategies for [Python](#if-you-are-working-in-python) and [R](#if-you-are-working-in-r) users:
 
@@ -30,29 +30,30 @@ If you have G4X-helpers installed, you can use the `G4Xoutput()` class to access
 ```py
 import g4x_helpers as g4x
 
-run_base = '/path/to/g4x_output/sample_x1'
+run_base = '/path/to/g4x_data/sample_x1'
 
-sample = g4x.G4Xoutput(run_base=run_base)
+sample = g4x.G4Xoutput(run_base)
 adata = sample.load_adata(remove_nontargeting=False, load_clustering=False) 
 ```
 
 !!!note "Note: `load_adata()` options"
     
-    Two options are provided that will impact what will be loaded. In the above example we are overriding the default so that the output matches the other methods.  
-    `remove_nontargeting`: bool (default=True)  
-    `load_clustering`: bool (default=True)
+    `load_adata()` provides options that control which data are returned.  
+    `processed`: bool (default=True)  
+    `remove_nontargeting`: bool (default=False)  
+    `load_clustering`: bool (default=False)
 
 
 ### 2. scanpy
 
-You can achieve the same result by pointing scanpy's `read_h5ad()` function the `feature_matrix.h5` in your G4X-output directory
+You can achieve the same result by pointing scanpy's `read_h5ad()` function to `sc_processed.h5ad` in your G4X-data directory.
 
 ```py
 from pathlib import Path
 import scanpy as sc
 
-run_base = Path('/path/to/g4x_output/sample_x1')
-ad_file = run_base / 'single_cell_data' / 'feature_matrix.h5'
+run_base = Path('/path/to/g4x_data/sample_x1')
+ad_file = run_base / 'single_cell_data' / 'sc_processed.h5ad'
 
 adata = sc.read_h5ad(ad_file)
 ```
@@ -63,7 +64,7 @@ adata = sc.read_h5ad(ad_file)
 
 ### 3. building from raw data
 
-If you do not wish to use the pre-generated `feature_matrix.h5` you can replicate a similar object by reading the counts and cell metadata into an `anndata` object.
+If you do not wish to use the pre-generated `sc_processed.h5ad` you can replicate a similar object by reading the counts and cell metadata into an `anndata` object.
 
 ```py
 from pathlib import Path
@@ -71,15 +72,15 @@ import anndata as ad
 import pandas as pd
 from scipy import sparse
 
-run_base = Path('/path/to/g4x_output/sample_x1')
+run_base = Path('/path/to/g4x_data/sample_x1')
 
-txcounts_path = run_base / 'single_cell_data' / 'cell_by_transcript.csv.gz'
+txcounts_path = run_base / 'single_cell_data' / 'cell_by_gene.csv.gz'
 metadata_path = run_base / 'single_cell_data' / 'cell_metadata.csv.gz'
 
-counts = pd.read_csv(txcounts_path, index_col='label')
+counts = pd.read_csv(txcounts_path, index_col='cell_id')
 X = sparse.csr_matrix(counts.values)
 
-metadata = pd.read_csv(metadata_path, index_col='label')
+metadata = pd.read_csv(metadata_path, index_col='cell_id')
 
 adata = ad.AnnData(X=X, obs=metadata)
 adata.var_names = counts.columns
@@ -102,9 +103,9 @@ To work with your data in Seurat, it needs to be loaded into a `SeuratObject`, w
 ```R
 library('Seurat')
  
-run_base = c('/path/to/g4x_output/sample_x1')
+run_base = c('/path/to/g4x_data/sample_x1')
 
-txcounts_path = file.path(run_base, "single_cell_data/cell_by_transcript.csv.gz")
+txcounts_path = file.path(run_base, "single_cell_data/cell_by_gene.csv.gz")
 metadata_path = file.path(run_base, "single_cell_data/cell_metadata.csv.gz")
 
 counts <- read.csv(txcounts_path, row.names = 1) 
