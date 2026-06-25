@@ -1,0 +1,180 @@
+<br>
+
+# Usage
+
+G4X-helpers offers several tools for common post-processing needs, each of which is described in detail in the [CLI features](../features/index.md) section. On this page, we will demonstrate how to execute these tools either from the CLI or through a Docker image (depending on how you [installed G4X-helpers](../installation/index.md)).
+
+## Quickstart
+If you have successfully installed G4X-helpers, you can get an overview of the basic usage by calling the main entrypoint `g4x-helpers --help`.  
+Please refer to the sections below for details on how to run a subcommand.
+
+![`g4x-helpers --help`](../img/main-help.svg)
+
+<br>
+
+## CLI usage
+---
+### Activating your environment
+Before getting started, you need to ensure that the environment in which you installed G4X-helpers is activated. How this is done depends on your installation method. We recommend [installing it into a Conda environment](../installation/source.md#step-2-install-the-package). 
+
+=== "<span style="font-size:1rem">conda</span>"
+
+    If you created an environment with the name `g4x-helpers_env`, you will activate it with the following command:
+
+    ```bash
+    conda activate g4x-helpers_env
+    ```
+
+    Once activated, your shell prompt should change to include the environment name:
+
+    ```bash
+    (g4x-helpers_env) $
+    ```
+    You can further verify that you’re using the correct interpreter:
+
+    ```bash
+    (g4x-helpers_env) $ which python
+    /Users/you/miniconda3/envs/g4x-helpers_env/bin/python
+    ```
+
+=== "<span style="font-size:1rem">uv</span>"
+
+    ```bash
+    source .venv/bin/activate
+    ```
+
+    Once activated, your shell prompt should change to include the environment name (`g4x_helpers` is the default):
+    
+    ```bash
+    (g4x-helpers) $
+    ```
+
+    You can further verify that you’re using the correct interpreter:
+
+    ```bash
+    (g4x-helpers) $ which python
+    /Users/You/G4X-helpers/.venv/bin/python
+    ```
+<br>
+
+### Basic command pattern
+---
+```
+g4x-helpers [GLOBAL OPTIONS] <command> [OPTIONS] /path/to/g4x_data
+```
+
+Provide global options **before** the sub-command. Each command then defines its own required and optional arguments, followed by the `G4X-DATA` positional argument. All workflows assume you have a single-sample [G4X-data directory](https://docs.singulargenomics.com/g4x_data/g4x_output/) and, in some cases, additional input files (e.g. manifests or metadata tables).
+
+#### Global options
+
+| option | default | description |
+| --- | --- | --- |
+| `--verbose` / `-v` | `1` | Controls logging detail in the terminal. `0` prints warnings only, `1` shows progress-level logs, `2` enables detailed debugging output. File logs will always contain level `2` outputs |
+| `--version` | — | Prints the installed `g4x-helpers` version and exits, which is helpful for troubleshooting and documentation. |
+| `--help` / `-h` | — | Standard Click help flag that prints contextual usage information for the command you attach it to. |
+
+!!! tip
+    Always place global options **before** the sub-command: `g4x-helpers --verbose 2 resegment ...`
+
+#### Discovering CLI commands
+
+- List every available sub-command and a short description:
+
+    ```bash
+    g4x-helpers --help
+    ```
+
+- Show detailed usage and arguments for a specific command (e.g. `redemux`):
+
+    ```bash
+    g4x-helpers redemux --help
+    ```
+
+- Confirm which package version your environment is using:
+
+    ```bash
+    g4x-helpers --version
+    ```
+
+
+### Example: running `resegment` from the CLI
+
+Below we apply a custom cell segmentation to existing data using the `resegment` sub-command. The command writes results to `<G4X-DATA>/g4x-helpers/custom_seg`.
+
+```
+g4x-helpers resegment \
+    --cell-labels /path/to/custom/segmentation/seg_mask.npz \
+    --branch custom_seg \
+    --no-downstream \
+    /path/to/g4x_output/directory/sample_id
+```
+
+For this run we provide:
+
+| argument | value | type |
+| --- | --- | --- |
+| `G4X-DATA` | /path/to/g4x_output/directory/sample_id | directory |
+| `--cell-labels` | /path/to/custom/segmentation/seg_mask.npz | .npz file |
+| `--branch` | custom_seg | string |
+| `--no-downstream` | - | flag |
+
+
+If the command succeeds you'll see the `resegment` progress log in your terminal.
+
+<br>
+
+## Docker usage
+---
+### Pull the G4X-helpers image
+
+If you haven't done so already (maybe you skipped the [Docker setup](../installation/docker.md) section) you will first need to pull the G4X-helpers Docker image. This is done via `docker pull`, which downloads the image (and all of its layers) from GitHub’s Container Registry ( ghcr.io ) to your local Docker cache.
+
+```bash
+docker pull ghcr.io/singular-genomics/g4x-helpers:latest
+```
+
+If you want to run a specific version, please refer to the [Docker setup](../installation/docker.md) section for details.
+
+### Basic command pattern
+
+When running via Docker, the pattern is similar to [invoking a CLI command](#basic-command-pattern), with the exception that all paths and the Docker image need to be specified.
+Inside the container, always reference the mounted paths (e.g. `/data/...`), not the host paths ([see full example below](#example-using-resegment-in-docker)).
+
+
+```bash
+docker run --rm \
+  -v /host/path/to/g4x_output:/data/g4x_output \
+  [-v /host/path/to/other_inputs:/data/inputs ] \
+  ghcr.io/singular-genomics/g4x-helpers:latest \
+  g4x-helpers [GLOBAL OPTIONS] <command> [OPTIONS] /data/g4x_output/sample_id
+```
+
++ `-v host:container` mounts your folder to let the container see your files (add additional mounts for manifests or masks as needed). 
++ `--rm` cleans up the container after it exits.
++ `ghcr.io/singular-genomics/g4x-helpers:latest` uses the latest version of G4X-helpers
+
+
+### Example: using `resegment` in Docker
+
+Here we run the same `resegment` command as in the [CLI example](#example-running-resegment-from-the-cli) above.
+
+```bash
+docker run --rm \
+  -v /path/to/g4x_output/directory:/data/g4x_output \
+  -v /path/to/custom/segmentation:/data/inputs \
+  ghcr.io/singular-genomics/g4x-helpers:latest \
+  g4x-helpers resegment \
+    --cell-labels /data/inputs/seg_mask.npz \
+    /data/g4x_output/sample_id
+```
+
+## Python module
+---
+!!!note
+    G4X-helpers can also be imported as a Python module, in which case it can provide some convenience functions to access and interact with your data.  
+    Documentation for this will follow in a separate section.
+
+<br>
+
+
+--8<-- "_core/_partials/end_cap.md"

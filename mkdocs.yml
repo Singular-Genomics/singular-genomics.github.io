@@ -9,33 +9,51 @@ repo_name: singular-genomics.github.io
 repo_url: https://github.com/Singular-Genomics/singular-genomics.github.io
 
 nav:
-  - Docs Home: index.md
-  
-  - G4X-helpers:
-      - https://docs.singulargenomics.com/G4X-helpers/
-  
-  - G4X-viewer:
-      - https://docs.singulargenomics.com/G4X-viewer/
+    - Docs Home: index.md
 
-  - G4X-data:
-      - g4x_data/index.md
-      - Directory structure: g4x_data/output_structure.md
-      - File reference:
-        - g4x_data/output_files/index.md
-        - root directory: g4x_data/output_files/root_directory.md
-        - g4x-viewer.zarr: g4x_data/output_files/g4x_viewer.md
-        - h_and_e: g4x_data/output_files/h_and_e.md
-        - metrics: g4x_data/output_files/metrics.md
-        - protein: g4x_data/output_files/protein.md
-        - rna: g4x_data/output_files/rna.md
-        - masks: g4x_data/output_files/segmentation.md
-        - single_cell_data: g4x_data/output_files/single_cell_data.md
-      
-      - Data import: g4x_data/data_import.md
+    - G4X-helpers:
+          - g4x_helpers/index.md
+          - Installation:
+                - g4x_helpers/installation/index.md
+                - Source install: g4x_helpers/installation/source.md
+                - Docker setup: g4x_helpers/installation/docker.md
 
-  - G4X-tutorials:
-      - ./g4x_tutorials/index.md
-      - Plot spatial: g4x_tutorials/plot_spatial.md
-      - Segment data: g4x_tutorials/segment_data.md
+          - Usage:
+                - g4x_helpers/usage/index.md
+
+          - CLI features:
+                - g4x_helpers/features/index.md
+                - viewer: g4x_helpers/features/viewer.md
+                - redemux: g4x_helpers/features/redemux.md
+                - resegment: g4x_helpers/features/resegment.md
+                - migrate: g4x_helpers/features/migrate.md
+                - validate: g4x_helpers/features/validate.md
+
+          - Contributing: g4x_helpers/contributing.md
+          - Changelog: g4x_helpers/changelog.md
+
+    - G4X-viewer:
+          - https://docs.singulargenomics.com/G4X-viewer/
+
+    - G4X-data:
+          - g4x_data/index.md
+          - Directory structure: g4x_data/output_structure.md
+          - File reference:
+                - g4x_data/output_files/index.md
+                - root directory: g4x_data/output_files/root_directory.md
+                - g4x-viewer.zarr: g4x_data/output_files/g4x_viewer.md
+                - h_and_e: g4x_data/output_files/h_and_e.md
+                - metrics: g4x_data/output_files/metrics.md
+                - protein: g4x_data/output_files/protein.md
+                - rna: g4x_data/output_files/rna.md
+                - masks: g4x_data/output_files/segmentation.md
+                - single_cell_data: g4x_data/output_files/single_cell_data.md
+
+          - Data import: g4x_data/data_import.md
+
+    - G4X-tutorials:
+          - ./g4x_tutorials/index.md
+          - Plot spatial: g4x_tutorials/plot_spatial.md
+          - Segment data: g4x_tutorials/segment_data.md
 
 #   - Changelog: changelog.md
