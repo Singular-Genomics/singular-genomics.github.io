@@ -58,10 +58,6 @@ When ignore genes were included in the panel design, the summary contains an exp
 
     This section is panel-specific and appears only when the design includes off-target ignores. It is separate from the default reference exceptions described below.
 
-!!! note "Report-version differences"
-
-    Older panel QC reports may contain layouts or features that are no longer current. The `offtarget_ignore` mapping described here is also used in current reports when ignore genes are included in the design.
-
 ![Expanded mapping between requested target genes and ignored off-target genes](../../images/g4x_reports/panel_qc_report/offtarget_ignores.png)
 
 ### Reference exceptions
