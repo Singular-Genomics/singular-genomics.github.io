@@ -36,6 +36,9 @@ nav:
 
   - G4X-tutorials:
       - ./g4x_tutorials/index.md
+      - G4X-reports:
+        - ./g4x_tutorials/g4x_reports/index.md
+        - Panel QC report: g4x_tutorials/g4x_reports/panel_qc_report.md
       - Plot spatial: g4x_tutorials/plot_spatial.md
       - Segment data: g4x_tutorials/segment_data.md
 
