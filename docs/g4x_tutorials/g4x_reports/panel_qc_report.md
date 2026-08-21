@@ -30,13 +30,15 @@ Use the following operating-system-specific steps to extract and open the report
 You can use this report in two ways:
 
 1. To get a quick, high-level understanding of how your panel performed. This review focuses on the [panel statistics](#high-level-panel-statistics) and [summary](#summary-metrics) sections of the report.
-2. To explore important or problematic genes in greater detail and understand where our probes land and how we identified them. Most of this information is in the [gene-level](#gene-level-reports) section of the report.
+2. To explore important genes or genes with low or no coverage in greater detail and understand where candidate probes align and how they were selected. Most of this information is in the [gene-level](#gene-level-reports) section of the report.
 
-Most users will find that most, if not all, of their requested genes were designed with standard coverage. This means that we do not recommend any changes and are confident in their performance in our assay. In this case, you likely will not need to look any deeper than the report landing page.
+Most requested genes are typically designed with standard coverage. For these genes, design changes are generally not recommended, and the genes are expected to perform well in the G4X assay. In these cases, further review beyond the report landing page is typically unnecessary.
 
-If there are problematic genes, you will typically have two ways to address them. First, you can contact the Singular Genomics team to replace a low- or no-coverage gene with an alternative gene. Alternatively, if the gene is important to your work and cannot be removed from the panel, we can explore off-target allowances to increase the likelihood of finding probes that work for you.
+If there are genes with low or no coverage, you will typically have two ways to address them. First, you can contact the Singular Genomics team to replace a low- or no-coverage gene with an alternative gene. Alternatively, if the gene is important to your work and cannot be removed from the panel, you can work with the Singular Genomics team to evaluate potential off-target allowances that may increase the likelihood of identifying suitable probes.
 
-For each gene for which you want to consider off-target allowances, open the gene-level report and review the hits listed in the [off-target gene hits](#off-target-gene-hits) section. Identify any off-target hits that may be acceptable for probes targeting that gene. We typically recommend confirming that the off-target gene either shares a functional role with your intended gene in the tissue or is expressed at a sufficiently low level that you do not expect meaningful signal from it.
+This process is often iterative. You identify one or more acceptable off-target genes, Singular Genomics reruns the panel design, and the updated results are reviewed with you. If coverage does not improve sufficiently, additional off-target allowances may be considered.
+
+For each gene for which you want to consider off-target allowances, open the gene-level report and review the hits listed in the [off-target gene hits](#off-target-gene-hits) section. Identify any off-target hits that may be acceptable for probes targeting that gene. Singular Genomics recommends confirming that the off-target gene either shares a functional role with your intended gene in the tissue or is expressed at a sufficiently low level that you do not expect meaningful signal from it.
 
 !!! warning
     While off-target allowances often result in more probes, some genes are part of large gene families with extremely high homology and will likely not be resolved with only one or two allowances. For example, IgG1, IgG2, IgG3, and IgG4 may require a solution such as a pan-IgG targeting probe instead of probes targeting one or two family members.
@@ -68,7 +70,7 @@ The associated pie chart shows a visual representation of the number and percent
 
 This section lists exceptions made for off-target comparisons during the design process. Allowing an off-target hit to a specific gene means that probe hits to the listed off-target gene were ignored for the corresponding target gene.
 
-For example, imagine that we are trying to design probes to target `IgG1`, but most probes are rejected because they have high homology to sequences on `IgG2`. You can find this information in the [gene-level reports](#gene-level-reports) section. If `IgG2` is expected to have low expression in the intended samples or has a similar functional role in the tissue, we may choose to allow off-target hits to `IgG2` for probes targeting `IgG1`. The resulting probes may detect `IgG1` or `IgG2`. We leave most of these decisions to the end user and mark ambiguous probes in the output data, but you must account for them independently in your analysis.
+For example, probes targeting `IgG1` may be rejected because of high sequence homology with `IgG2`. This information is available in the [gene-level reports](#gene-level-reports). If `IgG2` is expected to have low expression in the intended samples or has a sufficiently similar functional role in the tissue, the customer may decide, in consultation with Singular Genomics, to allow off-target hits to `IgG2` for probes targeting `IgG1`. The resulting probes may detect either `IgG1` or `IgG2`. Singular Genomics marks ambiguous probes in the output data. The customer should determine whether this ambiguity is acceptable for the intended application and account for it during downstream analysis.
 
 !!! note
 
@@ -98,11 +100,11 @@ Use **back to panel** at the bottom of a gene report to return to the panel summ
 
 ![Example gene-level probe statistics and candidate-probe filtering chart](../../images/g4x_reports/panel_qc_report/gene_filtering.png)
 
-The interactive pie chart allows you to explore how many candidate probes were filtered out at each stage of the design. This multilevel view mirrors the two stages of our panel design process: candidate generation and pooling.
+The interactive pie chart allows you to explore how many candidate probes were filtered out at each stage of the design. This multilevel view reflects the two stages of the panel design process: candidate generation and pooling.
 
 !!! tip "Passed final does not mean included"
 
-    Probes listed as **passed final** are not necessarily used in the design. Some may overlap with one another or conflict with other probes in your panel. This value only indicates how many candidate probes passed all hard filters in our analysis.
+    Probes listed as **passed final** are not necessarily used in the design. Some may overlap with one another or conflict with other probes in your panel. This value only indicates how many candidate probes passed all hard filters applied during the design analysis.
 
 #### Off-target gene hits
 
@@ -117,7 +119,7 @@ This information can help you identify off-target allowances that may be accepta
 
 ![Example interactive probe-alignment view](../../images/g4x_reports/panel_qc_report/probe_alignments.png)
 
-The embedded IGV viewer allows you to see exactly where your probes bind relative to the exons of the target gene. All isoforms are listed on the lowest tracks to provide a clear view of probe binding. You can pan and zoom within the plot.
+The embedded IGV viewer allows you to view where probes are predicted to bind relative to the exons of the target gene. All isoforms are listed on the lowest tracks to provide a clear view of predicted probe binding. You can pan and zoom within the plot.
 
 !!! tip "Misaligned Probes/Exons"
     Some tracks in this plot may contain scroll bars on the far right. If no visible intron aligns with a probe location, the probe may target an exon that is farther down in the scrollable track.
