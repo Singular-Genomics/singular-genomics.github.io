@@ -1,65 +1,65 @@
-# Preprocessing Transcript Data
+# Preprocess and filter transcript data
 
 ---
 
 <br>
 
-This brief tutorial primarily uses the [scanpy](https://scanpy.scverse.org/en/stable/installation.html) and [numpy](https://numpy.org/install/) libraries and assumes that both are installed and working on your system. If not, please refer to their respective documentation pages for installation instructions. This example uses Python, but equivalent tools are available in most scientific computing languages and can be used to perform similar filtering steps.
+This tutorial uses [Scanpy](https://scanpy.scverse.org/en/stable/installation.html) and [NumPy](https://numpy.org/install/) to prepare transcript data for downstream analysis. Install both libraries before you begin. The example uses Python, but you can apply the same steps with equivalent tools in other languages.
 
 <br>
 
-The following preprocessing steps are typically applied to transcript data before downstream analysis:
+The workflow covers these common preprocessing steps:
 
-* remove control probes (NCS, NCP, GCP)
-* **filter excessively small and large cells**
-* **remove genes present in very few cells**
-* **remove cells with poor transcript diversity**
-* **remove cells with very low total transcripts**
-* count normalize transcript counts per cell
-* log transform your data
+- Remove control probes (NCS, NCP, GCP, and gDNA)
+- **Remove cells outside the expected size range**
+- **Remove genes detected in very few cells**
+- **Remove cells with low transcript diversity**
+- **Remove cells with very low transcript counts**
+- Normalize transcript counts per cell
+- Log transform the data
 
-!!! note "Manual Tuning Required"
-For all bolded steps, we recommend adjusting the threshold values based on your dataset. For example, if your data has a median of 250 transcripts per cell, you may choose to remove cells with fewer than 30 transcripts instead of 10. Conversely, if you expect a substantial population of low-transcript cell types, a threshold closer to 10 may be more appropriate. This guide provides general recommendations for each threshold, but incorporating your biological understanding of the system will typically yield better results.
+!!! note "Tune the filtering to your data"
 
-For the steps below, feel free to copy and paste the code into a notebook or download the complete notebook [here](notebook_link). The prebuilt notebook includes additional print statements and more verbose output to help you evaluate and tune your filtering parameters.
+    Adjust the thresholds used in the four bold steps to fit your data. For example, if the median transcript count is 250 per cell, you might remove cells with fewer than 30 transcripts instead of 10. If you expect many cells with low transcript counts, a threshold closer to 10 may work better. The values below are starting points. Use your knowledge of the sample and review the data distributions before choosing final thresholds.
+
+You can copy the code below into a notebook and adjust it as needed for your analysis.
 
 <br>
 
-## Preprocessing Steps
+## Preprocessing steps
 
 ---
 
 #### 1. Import libraries
 
 ```python
-#importing necessary libraries
+# Import the required libraries
 import numpy as np
 import scanpy as sc
-import os
 ```
 
 #### 2. Load your data
 
 ```python
-# Load your data
-adata = sc.read_h5ad('path/to/your/data/single_cell_data/feature_matrix.h5')
+# Load the feature matrix
+adata = sc.read_h5ad("path/to/your/data/single_cell_data/feature_matrix.h5")
 ```
 
 #### 3. Set parameters for filtering
 
 ```python
-# Input your desired min and max cell size in um^2.
-# This will depend heavily on the expected cell size for your samples.
+# Set the minimum and maximum cell area in um^2.
+# Choose values that fit the expected cell sizes in your sample.
 cell_sz_min = 10
 cell_sz_max = 200
 
-# Input your desired min cells for a gene to be included in analysis.
+# Set the minimum number of cells in which a gene must be detected.
 n_cells_min = 50
 
-# Input your desired min unique genes for a cell to be retained.
+# Set the minimum number of unique genes required to keep a cell.
 n_genes_min = 5
 
-# Input your desired min total transcripts for a cell to be retained.
+# Set the minimum total transcript count required to keep a cell.
 n_txts_min = 10
 ```
 
@@ -68,35 +68,34 @@ n_txts_min = 10
 ```python
 def filter_control_probes(adata):
     """
-    Removes all gene targets that are control probes (NCS, NCP, GCP).
-    These are not real targets and are mostly used to estimate false 
-    discovery rates. Removing them is optional, but they shouldn't be
-    used in analysis.
+    Remove control probes from the feature matrix.
+
+    Control probes help estimate false discovery rates and should not be
+    included in downstream analysis.
     """
-    # control probes to remove
+    # Control probe patterns to remove
     patterns = ["ncp", "ncs", "gdna", "gcp"]
-    
-    # Boolean mask: keep genes that do NOT contain any pattern
+
+    # Keep genes that do not contain a control probe pattern
     keep_genes = [
         not any(p in gene.lower() for p in patterns)
-        for gene in adata.var['gene_id']
+        for gene in adata.var["gene_id"]
     ]
-    starting_targets = len(adata.var['gene_id'])
+    starting_targets = len(adata.var["gene_id"])
     final_targets = sum(keep_genes)
-    num_removed=starting_targets-final_targets
-    
+    num_removed = starting_targets - final_targets
+
     print(f"Removed {num_removed} control targets out of {starting_targets} total targets.")
-    
+
     # Subset AnnData (genes = columns)
     return adata[:, keep_genes].copy()
 
 adata = filter_control_probes(adata)
 ```
 
-#### 5. Remove excessively small and large cells
+#### 5. Remove cells outside the expected size range
 
 ```python
-
 def filter_cells_by_size(
     adata,
     cell_sz_min=10,
@@ -104,7 +103,7 @@ def filter_cells_by_size(
     micron_area_key="nuclei_expanded_area_um",
 ):
     """
-    Filters cells by absolute area, removing any <cell_sz_min or >cell_sz_max
+    Remove cells with an area outside the selected range.
 
     Parameters
     ----------
@@ -119,7 +118,7 @@ def filter_cells_by_size(
     Returns
     -------
     anndata.AnnData
-        Filtered AnnData object (copy).
+        A copy of the filtered AnnData object.
     """
     if micron_area_key not in adata.obs.columns:
         raise KeyError(f"'{micron_area_key}' not found in adata.obs.")
@@ -138,45 +137,44 @@ def filter_cells_by_size(
     if cell_sz_max is not None:
         keep_cells &= values <= cell_sz_max
 
-    starting_targets = adata.n_obs
-    final_targets = int(keep_cells.sum())
-    num_removed = starting_targets - final_targets
+    starting_cells = adata.n_obs
+    final_cells = int(keep_cells.sum())
+    num_removed = starting_cells - final_cells
 
-    print(f"Removed {num_removed} out of a total {starting_targets} cells.")
+    print(f"Removed {num_removed} out of {starting_cells} total cells.")
 
     return adata[keep_cells].copy()
 
 
 adata = filter_cells_by_size(adata, cell_sz_min, cell_sz_max)
-
 ```
 
-#### 6. Remove genes found in too few cells
+#### 6. Remove genes detected in too few cells
 
 ```python
 # Remove genes that are detected in fewer than n_cells_min cells
 sc.pp.filter_genes(adata, min_cells=n_cells_min)
 ```
 
-#### 7. Remove cells with too few genes present
+#### 7. Remove cells with too few detected genes
 
 ```python
-# Remove cells with low transcript diversity (< n_genes_min genes)
+# Remove cells with fewer than n_genes_min detected genes
 sc.pp.filter_cells(adata, min_genes=n_genes_min)
 ```
 
-#### 8. Remove cells with too few total transcripts present
+#### 8. Remove cells with too few transcripts
 
 ```python
-# Remove cells with fewer than n_txts_min total transcript counts
+# Remove cells with fewer than n_txts_min total transcripts
 sc.pp.filter_cells(adata, min_counts=n_txts_min)
 ```
 
-#### 9. Perform count normalization and log transform your matrix
+#### 9. Normalize and log transform the matrix
 
 ```python
 # Normalize counts per cell to a total of 10,000
-print(f"\nCount normalizing transcript counts per cell.")
+print("\nNormalizing transcript counts per cell.")
 sc.pp.normalize_total(
     adata,
     target_sum=1e4,
@@ -184,18 +182,22 @@ sc.pp.normalize_total(
 )
 
 # Log-transform the data: log(1 + x)
-print(f"\nPerforming a log transform on the cell x gene matrix.")
+print("\nLog transforming the cell-by-gene matrix.")
 sc.pp.log1p(adata)
 ```
 
-#### 10. Save your filtered h5 file
+#### 10. Save the filtered feature matrix
 
 ```python
-# Save the filtered h5 file
+# Save the filtered feature matrix
 adata.write_h5ad("/path/to/analysis/folder/filtered_feature_matrix.h5")
 ```
 
-At this point, your data is ready for downstream analysis.
+Your data is now ready for downstream analysis.
+
+!!! note "Review each sample individually"
+
+    Results can vary by tissue, sample, and disease context because of differences in cell composition, background signal, staining quality, and other factors. Review the filtering results for each sample and adjust the thresholds as needed.
 
 <br>
 
