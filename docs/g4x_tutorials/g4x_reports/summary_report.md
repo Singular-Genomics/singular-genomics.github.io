@@ -1,6 +1,6 @@
 <br>
 
-# G4X sample summary report guide
+# G4X Sample Summary Report Guide
 
 ---
 
