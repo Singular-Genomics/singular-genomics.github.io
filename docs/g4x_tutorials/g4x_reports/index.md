@@ -9,6 +9,7 @@ G4X reports provide design, processing, and quality-control information. This se
 #### In this section you can:
 
 + learn how to open and review a [panel QC report](./panel_qc_report.md)
++ review the quality-control and analysis results in a [G4X sample summary report](./summary_report.md)
 + More report guides coming soon!
 
 

@@ -9,7 +9,7 @@ G4X Tutorials are a collection of example workflows that demonstrate how to anal
 
 + learn how to [plot spatial](./plot_spatial.md) tissue information from the G4X-data
 + generate novel nuclear or cytoplasmic [segmentations](./segment_data.md) with popular models
-+ review G4X reports, beginning with the [panel QC report](./g4x_reports/panel_qc_report.md)
++ review the [panel QC report](./g4x_reports/panel_qc_report.md) and [G4X sample summary report](./g4x_reports/summary_report.md)
 + More coming soon!
 
 
