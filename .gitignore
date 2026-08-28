@@ -4,5 +4,8 @@
 site/
 build/
 
+# Local review artifacts
+output/
+
 # OS generated files
 .DS_Store
