@@ -35,8 +35,7 @@ With [G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/) we provide an
 ---
 ### Explore and visualize your G4X-data  
 
-The G4X-viewer is a Python-based, multi-purpose, interactive viewer specifically designed to help you explore your G4X-data. The G4X-viewer is accessible through our [website](https://g4x-viewer.singulargenomics.com) or can be downloaded from [GitHub](https://github.com/Singular-Genomics/G4X-viewer) as a standalone application and hosted locally.
-
+G4X-viewer is an open-source, browser-based application for exploring G4X-data. Access the [hosted application](https://g4x-viewer.singulargenomics.com), or run it locally using the instructions in the [GitHub repository](https://github.com/Singular-Genomics/G4X-viewer).
 #### In this section, you can:
 
 + find [resources](https://docs.singulargenomics.com/G4X-viewer/resources) to learn how to navigate your data with the G4X-viewer
