@@ -203,14 +203,15 @@ np.savez_compressed("/path/to/output/folder/resegmented_masks.npz",
 
 #### Regenerate your G4X outputs
 
-After you have a segmentation that you are happy with, use out resegmentation tool to regenerate it for each tissue block. For installation tips, see our guide on [installing G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/installation). For advanced usage tips, see our [resegment documentation](https://docs.singulargenomics.com/G4X-helpers/g4x_helpers/features/resegment).
+After you have a segmentation that you are happy with, use the G4X-helpers v4 resegmentation tool to regenerate single-cell data and the G4X-viewer Zarr store for each tissue block. For installation tips, see our guide on [installing G4X-helpers](https://docs.singulargenomics.com/G4X-helpers/installation/). For advanced usage tips, see our [resegment documentation](https://docs.singulargenomics.com/G4X-helpers/features/resegment/).
 
 ```bash
-resegment 
-    --run_base /path/to/data/dir/<block_id>
-    --segmentation_mask /path/to/new/masks.npy 
-    --out_dir /path/to/output/dir/
+g4x-helpers resegment /path/to/data/dir/<block_id> \
+    --cell-labels /path/to/output/folder/resegmented_masks.npy \
+    --branch custom_segmentation
 ```
+
+This writes the regenerated outputs to `<G4X-DATA>/g4x-helpers/custom_segmentation`. Omit `--branch` to use the default `resegment` branch. If you use the `.npz` file saved above, pass `--labels-key nuclei_exp` to select the mask array.
 
 <br>
 

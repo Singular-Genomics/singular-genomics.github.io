@@ -24,7 +24,7 @@ All of these tools accept, or incorporate [`anndata`](https://anndata.readthedoc
 
 ### 1. G4X-helpers
 
-If you have G4X-helpers installed, you can use the `G4Xoutput()` class to access the anndata of your sample via the `load_adata()` method.
+If you have G4X-helpers v4 installed, you can use the `G4Xsample()` class to access the anndata of your sample via the `load_adata()` method.
 
 
 ```py
@@ -32,7 +32,7 @@ import g4x_helpers as g4x
 
 run_base = '/path/to/g4x_data/sample_x1'
 
-sample = g4x.G4Xoutput(run_base)
+sample = g4x.G4Xsample(run_base)
 adata = sample.load_adata(remove_nontargeting=False, load_clustering=False) 
 ```
 
