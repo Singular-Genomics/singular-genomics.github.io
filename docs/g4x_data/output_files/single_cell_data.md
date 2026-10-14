@@ -51,7 +51,9 @@
 | `leiden_res`  | *str* | Leiden clustering resolution that this entry is derived from (1 per gene per cluster) |
 
 ### `sc_processed.h5ad`
-> AnnData file containing the cell by gene matrix with cell and gene metadata. This file can be loaded into Python and used in `scanpy` or a number of other pipelines. See [data import](../data_import.md). The `.obs` table is equivalent to [cell_metadata](#cell_metadatacsvgz).
+> AnnData file containing filtered and processed RNA data with cell and gene metadata. The retained data is used to call clusters and calculate differential gene expression. Filtering is likely to remove cells and genes present in the raw CSV tables; please refer to [data import](../data_import.md) to learn how to build an unprocessed/raw AnnData object.  
+> When preprocessing completes, `.X` contains RNA values normalized by total counts per cell and transformed with `log1p`. `.layers["counts"]` contains raw counts for the same retained cells and genes. PCA, UMAP, and clustering results are included when the corresponding processing steps succeed. Outputs saved after an incomplete processing run may lack some layers or annotations.
+> For multiomics data, `.obsm["protein"]` stores mean protein intensities for the retained cells, with column names in `.uns["protein_names"]`. These measurements are separate from the RNA matrix.
 
 ### `cell_by_protein.csv.gz` [<span class="acc-2-text">:material-layers-outline:</span>]("multiomics runs only")
 > CSV file containing cell x protein intensity matrix. Each entry in the table is the average protein intensity for a given protein in a cell.
