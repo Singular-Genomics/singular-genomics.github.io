@@ -1,5 +1,13 @@
 # Changelog
 
+## `v0.4.1` — [2026-10-14]
+
+- Update the G4X output directory structure and file references for the v4 OME-TIFF and `g4x-viewer.zarr` layout.
+- Distinguish raw count imports from filtered, normalized AnnData outputs; document count layers, protein matrices, and unprocessed imports with G4X-helpers.
+- Correct single-cell and transcript table descriptions, including protein storage, DGEx fractions, clustering annotation names, and field availability.
+- Update resegmentation instructions for G4X-helpers v4 and clarify branch output paths and mask array selection.
+- Remove stale output references and correct the description of G4X-viewer as a browser-based application.
+
 ## `v0.4.0` — [2026-01-13]
 
 - Update output refs (#4) [[2d7de88](https://github.com/Singular-Genomics/singular-genomics.github.io/commit/2d7de88)]
