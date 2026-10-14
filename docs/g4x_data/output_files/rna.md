@@ -20,7 +20,7 @@
 
 
 ### `transcript_table.csv.gz`
-> CSV file listing all successfully demultiplexed transcript features. Includes transcript coordinates, quality score, probe name, gene identifier, and assigned `cell_id` values for each feature. The values in the [cell_by_gene](./single_cell_data.md#cell_by_genecsvgz) table are derived by applying cell segmentation masks over these transcripts.
+> CSV file listing all successfully demultiplexed transcript features. Includes transcript coordinates, quality score, and gene identifier. `cell_id` is added when transcripts are assigned to cells (will be absent after redemux with --no-downstream). The values in the [cell_by_gene](./single_cell_data.md#cell_by_genecsvgz) table are derived by applying cell segmentation masks over these transcripts.
 
 
 | column | type | description |
